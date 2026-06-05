@@ -1,136 +1,235 @@
-```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Bonusum Gelsin · Deneme Bonusları</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-* { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+  }
 
-body {
-  margin: 0;
-  padding: 14px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #f6f7f9;
-  color: #111;
-}
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
 
-.page-container {
-  max-width: 520px;
-  margin: 0 auto;
-}
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f6f7f9;
+    color: #111827;
+  }
 
-.header {
-  text-align: center;
-  margin-bottom: 16px;
-}
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 16px 12px 24px;
+  }
 
-h1 {
-  font-size: 24px;
-  margin: 8px 0 4px;
-}
-
-.subtitle {
-  font-size: 13px;
-  color: #666;
-}
-
-.bonus-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.bonus-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 14px;
-  box-shadow: 0 3px 10px rgba(0,0,0,.07);
-}
-
-.bonus-main {
-  margin-bottom: 12px;
-}
-
-.bonus-top {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.logo-box {
-  width: 110px;
-  min-width: 110px;
-  height: 48px;
-  background: #f3f4f6;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 12px;
-}
-
-.logo-box img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.bonus-info {
-  flex: 1;
-}
-
-.bonus-title {
-  font-size: 22px;
-  font-weight: 900;
-  line-height: 1.1;
-  color: #111;
-}
-
-.btn {
-  display: block;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
-  background: #ec4899;
-  color: #fff;
-  padding: 14px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 800;
-  box-shadow: 0 3px 8px rgba(236,72,153,.28);
-}
-
-.btn:hover {
-  background: #db2777;
-}
-
-@media (min-width: 700px) {
   .page-container {
+    width: 100%;
     max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .header h1 {
+    margin: 6px 0 5px;
+    font-size: 25px;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .bonus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
   }
 
   .bonus-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: 0 4px 14px rgba(17, 24, 39, 0.08);
+    border: 1px solid rgba(17, 24, 39, 0.06);
   }
 
-  .bonus-main {
+  .bonus-content {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+  }
+
+  .logo-box {
+    width: 118px;
+    min-width: 118px;
+    height: 52px;
+    border-radius: 999px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 13px;
+    overflow: hidden;
+  }
+
+  .logo-box img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .bonus-title {
     flex: 1;
-    margin-bottom: 0;
+    min-width: 0;
+    font-size: 21px;
+    line-height: 1.12;
+    font-weight: 950;
+    letter-spacing: -0.45px;
+    color: #111827;
   }
 
   .btn {
-    width: 180px;
+    display: block;
+    width: 100%;
+    margin-top: 13px;
+    padding: 15px 16px;
+    border-radius: 14px;
+    background: #ec4899;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 900;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.32);
+    transition: transform .12s ease, background .12s ease;
   }
-}
+
+  .btn:hover {
+    background: #db2777;
+  }
+
+  .btn:active {
+    transform: scale(0.985);
+  }
+
+  @media (max-width: 380px) {
+    .page {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .bonus-card {
+      padding: 12px;
+      border-radius: 16px;
+    }
+
+    .bonus-content {
+      gap: 10px;
+    }
+
+    .logo-box {
+      width: 104px;
+      min-width: 104px;
+      height: 48px;
+      padding: 6px 10px;
+    }
+
+    .bonus-title {
+      font-size: 19px;
+    }
+
+    .btn {
+      padding: 14px;
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 700px) {
+    .page {
+      padding: 24px 18px 36px;
+    }
+
+    .header {
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 30px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+
+    .bonus-list {
+      gap: 14px;
+    }
+
+    .bonus-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 18px;
+      border-radius: 20px;
+    }
+
+    .bonus-content {
+      flex: 1;
+      gap: 18px;
+    }
+
+    .logo-box {
+      width: 150px;
+      min-width: 150px;
+      height: 58px;
+      padding: 8px 16px;
+    }
+
+    .bonus-title {
+      font-size: 25px;
+    }
+
+    .btn {
+      width: 180px;
+      margin-top: 0;
+      padding: 17px 16px;
+      border-radius: 14px;
+      font-size: 15px;
+    }
+  }
 </style>
+</head>
 
-<div class="page-container">
+<body>
 
-  <div class="header">
-    <h1>Deneme Bonusları</h1>
-    <div class="subtitle">Güncel deneme bonusları</div>
+<div class="page">
+  <div class="page-container">
+
+    <div class="header">
+      <h1>Deneme Bonusları</h1>
+      <div class="subtitle">Güncel deneme bonusları</div>
+    </div>
+
+    <div id="bonus-list" class="bonus-list"></div>
+
   </div>
-
-  <div id="bonus-list" class="bonus-list"></div>
-
 </div>
 
 <script>
@@ -164,53 +263,99 @@ const bonuses = [
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/tipobet.png",
     title: "750 TL Freebet",
     url: "https://goo.su/Tipobet"
+  },
+  {
+    site: "1xBet",
+    logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/1xbet.png",
+    title: "Deneme Bonusu",
+    url: "https://t2m.io/1x-strlink"
+  },
+  {
+    site: "Casinohub",
+    logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/casinohub.png",
+    title: "Deneme Bonusu",
+    url: "https://tls.tc/GzM8J?"
+  },
+  {
+    site: "Site 8",
+    logoUrl: "LOGO_URL_8",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_8"
+  },
+  {
+    site: "Site 9",
+    logoUrl: "LOGO_URL_9",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_9"
+  },
+  {
+    site: "Site 10",
+    logoUrl: "LOGO_URL_10",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_10"
+  },
+  {
+    site: "Site 11",
+    logoUrl: "LOGO_URL_11",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_11"
+  },
+  {
+    site: "Site 12",
+    logoUrl: "LOGO_URL_12",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_12"
+  },
+  {
+    site: "Site 13",
+    logoUrl: "LOGO_URL_13",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_13"
+  },
+  {
+    site: "Site 14",
+    logoUrl: "LOGO_URL_14",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_14"
+  },
+  {
+    site: "Site 15",
+    logoUrl: "LOGO_URL_15",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_15"
+  },
+  {
+    site: "Site 16",
+    logoUrl: "LOGO_URL_16",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_16"
+  },
+  {
+    site: "Site 17",
+    logoUrl: "LOGO_URL_17",
+    title: "Deneme Bonusu",
+    url: "SITE_LINK_17"
   }
-
-  /* BURAYA 17 SİTENİN TAMAMINI EKLE */
 ];
 
 const list = document.getElementById("bonus-list");
 
-bonuses.forEach(bonus => {
-
+bonuses.forEach(function(bonus) {
   const card = document.createElement("div");
   card.className = "bonus-card";
 
-  card.innerHTML = `
-    <div class="bonus-main">
-
-      <div class="bonus-top">
-
-        <div class="logo-box">
-          <img
-            src="${bonus.logoUrl}"
-            alt="${bonus.site}"
-            onerror="this.style.display='none'"
-          >
-        </div>
-
-        <div class="bonus-info">
-          <div class="bonus-title">
-            ${bonus.title}
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <a
-      class="btn"
-      href="${bonus.url}"
-      target="_blank"
-      rel="nofollow noopener"
-    >
-      Bonusumu Al
-    </a>
-  `;
+  card.innerHTML =
+    '<div class="bonus-content">' +
+      '<div class="logo-box">' +
+        '<img src="' + bonus.logoUrl + '" alt="' + bonus.site + '" onerror="this.style.display=\\'none\\'">' +
+      '</div>' +
+      '<div class="bonus-title">' + bonus.title + '</div>' +
+    '</div>' +
+    '<a class="btn" href="' + bonus.url + '" target="_blank" rel="nofollow noopener">Bonusumu Al</a>';
 
   list.appendChild(card);
-
 });
 </script>
-```
+
+</body>
+</html>

@@ -7,20 +7,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: #f6f7f9;
-  color: #111827;
+  background: #f5f5f7;
+  color: #1d1d1f;
 }
 
 .page {
@@ -45,11 +42,12 @@ body {
   font-size: 26px;
   line-height: 1.1;
   font-weight: 900;
+  letter-spacing: -0.4px;
 }
 
 .subtitle {
   font-size: 13px;
-  color: #666;
+  color: #6e6e73;
   font-weight: 600;
 }
 
@@ -62,10 +60,31 @@ body {
 .bonus-card {
   width: 100%;
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid #ececec;
+  box-shadow: 0 2px 8px rgba(0,0,0,.045);
+}
+
+.featured-card {
+  padding: 17px;
+  border: 2px solid #f3d7e4;
+  background: linear-gradient(180deg, #ffffff 0%, #fffafb 100%);
+  box-shadow: 0 8px 22px rgba(190,24,93,.08);
+}
+
+.featured-label {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 11px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #ec4899;
+  color: #ffffff;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .3px;
 }
 
 .bonus-row {
@@ -80,12 +99,27 @@ body {
   min-width: 118px;
   height: 52px;
   border-radius: 999px;
-  background: #f3f4f6;
+  background: #111827;
+  border: 1px solid #374151;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 2px 6px rgba(0,0,0,.15);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 7px 13px;
   overflow: hidden;
+}
+
+.featured-card .logo-box {
+  width: 138px;
+  min-width: 138px;
+  height: 62px;
+  background: #111827;
+  border: 1px solid #374151;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 3px 8px rgba(0,0,0,.18);
 }
 
 .logo-box img {
@@ -101,7 +135,13 @@ body {
   font-size: 22px;
   line-height: 1.12;
   font-weight: 900;
-  color: #111827;
+  color: #1d1d1f;
+  letter-spacing: -0.35px;
+}
+
+.featured-card .bonus-title {
+  font-size: 26px;
+  color: #be185d;
 }
 
 .btn {
@@ -117,11 +157,58 @@ body {
   font-size: 15px;
   line-height: 1;
   font-weight: 900;
-  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.32);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.58);
+  animation: pulse 2s infinite;
+  transition: transform .15s ease, background .15s ease;
+}
+
+.featured-card .btn {
+  padding: 17px 16px;
+  font-size: 16px;
+  background: #be185d;
+  animation: featuredPulse 1.8s infinite;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  animation: shine 3s infinite;
 }
 
 .btn:hover {
   background: #db2777;
+  transform: translateY(-2px);
+}
+
+.featured-card .btn:hover {
+  background: #9d174d;
+}
+
+.btn:active {
+  transform: scale(.96);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.50); }
+  70% { box-shadow: 0 0 0 12px rgba(236, 72, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+}
+
+@keyframes featuredPulse {
+  0% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0.55); }
+  70% { box-shadow: 0 0 0 15px rgba(190, 24, 93, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0); }
+}
+
+@keyframes shine {
+  100% { left: 140%; }
 }
 
 @media (max-width: 380px) {
@@ -132,7 +219,11 @@ body {
 
   .bonus-card {
     padding: 12px;
-    border-radius: 16px;
+    border-radius: 18px;
+  }
+
+  .featured-card {
+    padding: 14px;
   }
 
   .bonus-row {
@@ -146,8 +237,18 @@ body {
     padding: 6px 10px;
   }
 
+  .featured-card .logo-box {
+    width: 116px;
+    min-width: 116px;
+    height: 54px;
+  }
+
   .bonus-title {
     font-size: 19px;
+  }
+
+  .featured-card .bonus-title {
+    font-size: 22px;
   }
 
   .btn {
@@ -174,7 +275,22 @@ body {
     align-items: center;
     gap: 18px;
     padding: 17px 18px;
-    border-radius: 20px;
+    border-radius: 22px;
+  }
+
+  .featured-card {
+    padding: 22px;
+  }
+
+  .bonus-card.featured-card {
+    position: relative;
+  }
+
+  .featured-label {
+    position: absolute;
+    top: -12px;
+    left: 22px;
+    margin-bottom: 0;
   }
 
   .bonus-row {
@@ -189,14 +305,29 @@ body {
     padding: 8px 16px;
   }
 
+  .featured-card .logo-box {
+    width: 190px;
+    min-width: 190px;
+    height: 74px;
+  }
+
   .bonus-title {
     font-size: 25px;
+  }
+
+  .featured-card .bonus-title {
+    font-size: 33px;
   }
 
   .btn {
     width: 180px;
     margin-top: 0;
     padding: 17px 16px;
+  }
+
+  .featured-card .btn {
+    width: 200px;
+    padding: 19px 16px;
   }
 }
 </style>
@@ -212,182 +343,151 @@ body {
       <div class="subtitle">Güncel deneme bonusları</div>
     </div>
 
-    <div class="bonus-list">
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/ligobet.png" alt="Ligobet">
-          </div>
-          <div class="bonus-title">750 TL Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="https://cutt.ly/teEgZLls" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/maxwin.png" alt="Maxwin">
-          </div>
-          <div class="bonus-title">300 TL Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="https://cutt.ly/maxsocial?" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/mobilbahis.png" alt="Mobilbahis">
-          </div>
-          <div class="bonus-title">100 Freespin</div>
-        </div>
-        <a class="btn" href="https://tinyurl.com/2kh8e3ab" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/rokubet.png" alt="Rokubet">
-          </div>
-          <div class="bonus-title">335 Freespin</div>
-        </div>
-        <a class="btn" href="https://rokubetr.com/" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/tipobet.png" alt="Tipobet">
-          </div>
-          <div class="bonus-title">750 TL Freebet</div>
-        </div>
-        <a class="btn" href="https://goo.su/Tipobet" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/1xbet.png" alt="1xBet">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="https://t2m.io/1x-strlink" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/casinohub.png" alt="Casinohub">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="https://tls.tc/GzM8J?" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_8" alt="Site 8">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_8" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_9" alt="Site 9">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_9" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_10" alt="Site 10">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_10" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_11" alt="Site 11">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_11" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_12" alt="Site 12">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_12" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_13" alt="Site 13">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_13" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_14" alt="Site 14">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_14" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_15" alt="Site 15">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_15" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_16" alt="Site 16">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_16" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-row">
-          <div class="logo-box">
-            <img src="LOGO_URL_17" alt="Site 17">
-          </div>
-          <div class="bonus-title">Deneme Bonusu</div>
-        </div>
-        <a class="btn" href="SITE_LINK_17" target="_blank" rel="nofollow noopener">Bonusumu Al</a>
-      </div>
-
-    </div>
+    <div id="bonus-list" class="bonus-list"></div>
 
   </div>
 </div>
+
+<script>
+const featuredBonus = {
+  site: "Grandpashabet",
+  logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/grandpashabet.png",
+  title: "1000 TL DENEME BONUSU",
+  url: "https://shorx.one/bkutusugp",
+  featured: true
+};
+
+const otherBonuses = [
+  {
+    site: "Maxwin",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/maxwin.png",
+    title: "300 TL DENEME BONUSU",
+    url: "https://rebrand.ly/bonuskutusumax"
+  },
+  {
+    site: "Superbet",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/superbet.png",
+    title: "250 TL DENEME BONUSU",
+    url: "https://tracker.superortaklik.com/link?btag=105918253_497350"
+  },
+  {
+    site: "Damabet",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/damabet.png",
+    title: "500 TL DENEME BONUSU",
+    url: "https://t.ly/bkutusudama"
+  },
+  {
+    site: "Betgar",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betgar.png",
+    title: "5000 TL DENEME BONUSU",
+    url: "https://girgara.com/MLIcUN"
+  },
+  {
+    site: "Roketbet",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/roketbet.png",
+    title: "2500 TL DENEME BONUSU",
+    url: "https://roketlegir.com/y91ZMX"
+  },
+  {
+    site: "Romabet",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/romabet.png",
+    title: "500 TL DENEME BONUSU",
+    url: "https://romagir1.com/GWaSyy"
+  },
+  {
+    site: "Venombet",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/venombet.png",
+    title: "2500 TL DENEME BONUSU",
+    url: "https://rebrand.ly/bonuskutusuvnm"
+  },
+  {
+    site: "Betwild",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betwild.png",
+    title: "1000 TL DENEME BONUSU",
+    url: "https://t.ly/bonuskutusubwild"
+  },
+  {
+    site: "Dedebet",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/dedebet.png",
+    title: "500 TL DENEME BONUSU",
+    url: "https://t.ly/bonuskutusudede"
+  },
+  {
+    site: "Bahibom",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/bahibom.png",
+    title: "1000 TL DENEME BONUSU",
+    url: "https://t.ly/bonuskutusubahibom"
+  },
+  {
+    site: "Sloto",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/sloto.png",
+    title: "250 TL DENEME BONUSU",
+    url: "https://t.ly/bonuskutususloto"
+  },
+  {
+    site: "Palazzobet",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/palazzobet.png",
+    title: "1000 TL DENEME BONUSU",
+    url: "https://t.ly/Pzgirbonuskutusu"
+  },
+  {
+    site: "Spinco",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/spinco.png",
+    title: "2000 TL DENEME BONUSU",
+    url: "https://t.ly/bonuskutususpc"
+  },
+  {
+    site: "Radissonbet",
+    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/radissonbet.png",
+    title: "500 TL DENEME BONUSU",
+    url: "https://ptns.io/dEVSR"
+  }
+];
+
+function shuffleArray(array) {
+  const shuffled = array.slice();
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = shuffled[i];
+    shuffled[i] = shuffled[j];
+    shuffled[j] = temp;
+  }
+
+  return shuffled;
+}
+
+function createBonusCard(bonus) {
+  const card = document.createElement("div");
+  card.className = bonus.featured ? "bonus-card featured-card" : "bonus-card";
+
+  card.innerHTML = `
+    ${bonus.featured ? '<div class="featured-label">ÖNE ÇIKAN BONUS</div>' : ''}
+
+    <div class="bonus-row">
+      <div class="logo-box">
+        <img src="${bonus.logo}" alt="${bonus.site}">
+      </div>
+
+      <div class="bonus-title">${bonus.title}</div>
+    </div>
+
+    <a class="btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">
+      BONUSU AL
+    </a>
+  `;
+
+  return card;
+}
+
+const bonusList = document.getElementById("bonus-list");
+
+bonusList.appendChild(createBonusCard(featuredBonus));
+
+shuffleArray(otherBonuses).forEach(function(bonus) {
+  bonusList.appendChild(createBonusCard(bonus));
+});
+</script>
 
 </body>
 </html>

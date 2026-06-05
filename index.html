@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -23,7 +22,7 @@ body {
 .page {
   width: 100%;
   min-height: 100vh;
-  padding: 14px 10px 24px;
+  padding: 14px 10px 90px;
 }
 
 .page-container {
@@ -49,6 +48,75 @@ body {
   font-size: 13px;
   color: #6e6e73;
   font-weight: 600;
+}
+
+.congrats-banner {
+  margin-top: 16px;
+  padding: 16px 42px 16px 14px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at top right, rgba(236,72,153,.22), transparent 35%),
+    linear-gradient(180deg, #ffffff 0%, #fff3f8 100%);
+  border: 2px solid #ec4899;
+  position: relative;
+  overflow: hidden;
+  animation: congratsPulse 1.4s infinite;
+}
+
+.congrats-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent);
+  animation: congratsShine 2.6s infinite;
+}
+
+.congrats-title {
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 950;
+  color: #ec4899;
+  letter-spacing: -0.6px;
+  animation: textBlink 1.15s infinite;
+}
+
+.congrats-text {
+  display: block;
+  margin-top: 8px;
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: 950;
+  color: #111827;
+  letter-spacing: -0.3px;
+}
+
+.congrats-close {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(17,24,39,.08);
+  color: #111827;
+  font-size: 19px;
+  line-height: 1;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.congrats-close:active {
+  transform: scale(.92);
+}
+
+.congrats-banner.is-hidden {
+  display: none;
 }
 
 .bonus-list {
@@ -120,11 +188,6 @@ body {
   width: 148px;
   min-width: 148px;
   height: 66px;
-  background: #111827;
-  border: 1px solid #374151;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.05),
-    0 5px 14px rgba(0,0,0,.22);
 }
 
 .logo-box img {
@@ -177,8 +240,7 @@ body {
   animation: featuredPulse 1.8s infinite;
 }
 
-.btn::before,
-.telegram-banner::before {
+.btn::before {
   content: "";
   position: absolute;
   top: 0;
@@ -199,80 +261,72 @@ body {
 }
 
 .btn:active,
-.telegram-banner:active {
+.share-button:active {
   transform: scale(.96);
 }
 
-/* TELEGRAM BANNER */
-.telegram-banner {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  width: 100%;
-  padding: 17px 16px;
-  border-radius: 20px;
+.site-footer {
+  margin-top: 22px;
+  padding: 18px 10px 8px;
+  text-align: center;
+  font-size: 13px;
+  color: #6e6e73;
+}
+
+.site-footer a {
+  color: #229ED9;
   text-decoration: none;
-  color: #ffffff;
-  background:
-    radial-gradient(circle at top right, rgba(255,255,255,.28), transparent 32%),
-    linear-gradient(135deg, #2AABEE 0%, #229ED9 48%, #0f7fc2 100%);
-  border: 1px solid rgba(255,255,255,.22);
-  box-shadow:
-    0 9px 22px rgba(34,158,217,.28),
-    0 3px 10px rgba(0,0,0,.08);
-  position: relative;
-  overflow: hidden;
-  transition: transform .15s ease, box-shadow .15s ease;
+  font-weight: 800;
 }
 
-.telegram-banner:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 26px rgba(34,158,217,.34),
-    0 4px 12px rgba(0,0,0,.10);
+.share-widget {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
 }
 
-.telegram-icon {
-  width: 54px;
-  min-width: 54px;
-  height: 54px;
+.share-title {
+  padding: 7px 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.92);
+  color: #1d1d1f;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  box-shadow: 0 3px 10px rgba(0,0,0,.08);
+  border: 1px solid rgba(0,0,0,.06);
+  backdrop-filter: blur(8px);
+}
+
+.share-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.share-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.8),
-    0 4px 10px rgba(0,0,0,.12);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.14);
 }
 
-.telegram-icon svg {
-  width: 30px;
-  height: 30px;
+.share-button svg {
+  width: 23px;
+  height: 23px;
   display: block;
 }
 
-.telegram-text {
-  flex: 1;
-  min-width: 0;
-  font-size: 18px;
-  line-height: 1.15;
-  font-weight: 950;
-  letter-spacing: -0.25px;
-}
-
-.telegram-cta {
-  display: none;
-  padding: 12px 16px;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #168acd;
-  font-size: 13px;
-  line-height: 1;
-  font-weight: 950;
-  white-space: nowrap;
-  box-shadow: 0 3px 9px rgba(0,0,0,.12);
-}
+.share-whatsapp { background: #25D366; }
+.share-telegram { background: #229ED9; }
 
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.50); }
@@ -287,6 +341,33 @@ body {
 }
 
 @keyframes shine {
+  100% { left: 140%; }
+}
+
+@keyframes congratsPulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(236,72,153,.42),
+      0 8px 22px rgba(190,24,93,.12);
+  }
+  60% {
+    box-shadow:
+      0 0 0 10px rgba(236,72,153,0),
+      0 8px 22px rgba(190,24,93,.16);
+  }
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(236,72,153,0),
+      0 8px 22px rgba(190,24,93,.12);
+  }
+}
+
+@keyframes textBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .72; transform: scale(1.02); }
+}
+
+@keyframes congratsShine {
   100% { left: 140%; }
 }
 
@@ -340,31 +421,33 @@ body {
     font-size: 15px;
   }
 
-  .telegram-banner {
-    gap: 11px;
-    padding: 15px 13px;
+  .congrats-banner {
+    padding: 14px 40px 14px 12px;
     border-radius: 18px;
   }
 
-  .telegram-icon {
-    width: 48px;
-    min-width: 48px;
-    height: 48px;
+  .congrats-title {
+    font-size: 23px;
   }
 
-  .telegram-icon svg {
-    width: 27px;
-    height: 27px;
+  .congrats-text {
+    font-size: 14px;
   }
 
-  .telegram-text {
-    font-size: 15px;
+  .share-title {
+    font-size: 10px;
+    padding: 6px 9px;
+  }
+
+  .share-button {
+    width: 39px;
+    height: 39px;
   }
 }
 
 @media (min-width: 700px) {
   .page {
-    padding: 24px 18px 36px;
+    padding: 24px 18px 100px;
   }
 
   .header h1 {
@@ -373,6 +456,19 @@ body {
 
   .subtitle {
     font-size: 14px;
+  }
+
+  .congrats-banner {
+    padding: 19px 48px 19px 20px;
+    border-radius: 22px;
+  }
+
+  .congrats-title {
+    font-size: 34px;
+  }
+
+  .congrats-text {
+    font-size: 22px;
   }
 
   .bonus-card {
@@ -435,30 +531,9 @@ body {
     padding: 20px 16px;
   }
 
-  .telegram-banner {
-    padding: 20px 22px;
-    border-radius: 22px;
-  }
-
-  .telegram-icon {
-    width: 64px;
-    min-width: 64px;
-    height: 64px;
-  }
-
-  .telegram-icon svg {
-    width: 36px;
-    height: 36px;
-  }
-
-  .telegram-text {
-    font-size: 24px;
-  }
-
-  .telegram-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  .share-widget {
+    right: 22px;
+    bottom: 22px;
   }
 }
 </style>
@@ -470,12 +545,42 @@ body {
   <div class="page-container">
 
     <div class="header">
-      <h1>17 Farklı Deneme Bonusu</h1>
+      <h1>Bonusum Gelsin</h1>
       <div class="subtitle">bonusumgelsin.com</div>
+
+      <div class="congrats-banner" id="congrats-banner">
+        <button class="congrats-close" id="congrats-close" type="button" aria-label="Kapat">×</button>
+        <span class="congrats-title">TEBRİKLER!</span>
+        <span class="congrats-text">18 FARKLI DENEME BONUSU KAZANDIN!</span>
+      </div>
     </div>
 
     <div id="bonus-list" class="bonus-list"></div>
 
+    <footer class="site-footer">
+      <a href="https://t.me/clickprojects" target="_blank" rel="nofollow noopener">
+        Telegram: @clickprojects
+      </a>
+    </footer>
+
+  </div>
+</div>
+
+<div class="share-widget" aria-label="Arkadaşına gönder">
+  <div class="share-title">ARKADAŞINA GÖNDER</div>
+
+  <div class="share-buttons">
+    <a class="share-button share-whatsapp" id="share-whatsapp" href="#" target="_blank" rel="nofollow noopener" aria-label="WhatsApp ile gönder">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M16.04 3C9.44 3 4.06 8.37 4.06 14.98c0 2.12.56 4.18 1.62 5.99L4 29l8.22-1.61a12 12 0 0 0 3.82.62c6.61 0 11.98-5.38 11.98-11.99S22.65 3 16.04 3zm0 22.93c-1.25 0-2.47-.21-3.63-.63l-.52-.19-4.87.95.98-4.74-.25-.49a9.85 9.85 0 0 1-1.12-4.55c0-5.19 4.22-9.41 9.41-9.41s9.41 4.22 9.41 9.41-4.22 9.65-9.41 9.65zm5.23-7.05c-.29-.14-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.14-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.51.07-.77.36-.26.29-1.01.98-1.01 2.39s1.03 2.78 1.18 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.31.19 1.8.12.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34z"/>
+      </svg>
+    </a>
+
+    <a class="share-button share-telegram" id="share-telegram" href="#" target="_blank" rel="nofollow noopener" aria-label="Telegram ile gönder">
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M179.4 74.4c1.8-11.7-4.5-16.3-13-12.8L48.8 106.9c-8 3.1-7.9 7.6-1.4 9.6l30.2 9.4 70.1-44.2c3.3-2 6.3-.9 3.8 1.4l-56.8 51.3-2.2 31.8c3.2 0 4.6-1.5 6.4-3.2l15.4-15 32 23.6c5.9 3.3 10.1 1.6 11.6-5.5l21.5-91.7z"/>
+      </svg>
+    </a>
   </div>
 </div>
 
@@ -488,126 +593,34 @@ const featuredBonus = {
   featured: true
 };
 
-const telegramBanner = {
-  title: "DENEME BONUSLARI İÇİN TELEGRAM GRUBUNA KATIL",
-  url: "https://t.me/+19_0X8hpQ-w0ZTdk"
-};
-
 const otherBonuses = [
-  {
-    site: "Maxwin",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/maxwin.png",
-    title: "300 TL DENEME BONUSU",
-    url: "https://rebrand.ly/bonuskutusumax"
-  },
-  {
-    site: "Superbet",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/superbet.png",
-    title: "250 TL DENEME BONUSU",
-    url: "https://tracker.superortaklik.com/link?btag=105918253_497350"
-  },
-  {
-    site: "Damabet",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/damabet.png",
-    title: "500 TL DENEME BONUSU",
-    url: "https://t.ly/bkutusudama"
-  },
-  {
-    site: "Betgar",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betgar.png",
-    title: "5000 TL DENEME BONUSU",
-    url: "https://girgara.com/MLIcUN"
-  },
-  {
-    site: "Roketbet",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/roketbet.png",
-    title: "2500 TL DENEME BONUSU",
-    url: "https://roketlegir.com/y91ZMX"
-  },
-  {
-    site: "Romabet",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/romabet.png",
-    title: "500 TL DENEME BONUSU",
-    url: "https://romagir1.com/GWaSyy"
-  },
-  {
-    site: "Venombet",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/venombet.png",
-    title: "2500 TL DENEME BONUSU",
-    url: "https://rebrand.ly/bonuskutusuvnm"
-  },
-  {
-    site: "Betwild",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betwild.png",
-    title: "1000 TL DENEME BONUSU",
-    url: "https://t.ly/bonuskutusubwild"
-  },
-  {
-    site: "Dedebet",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/dedebet.png",
-    title: "500 TL DENEME BONUSU",
-    url: "https://t.ly/bonuskutusudede"
-  },
-  {
-    site: "Bahibom",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/bahibom.png",
-    title: "1000 TL DENEME BONUSU",
-    url: "https://t.ly/bonuskutusubahibom"
-  },
-  {
-    site: "Sloto",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/sloto.png",
-    title: "250 TL DENEME BONUSU",
-    url: "https://t.ly/bonuskutususloto"
-  },
-  {
-    site: "Palazzobet",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/palazzobet.png",
-    title: "1000 TL DENEME BONUSU",
-    url: "https://t.ly/Pzgirbonuskutusu"
-  },
-  {
-    site: "Spinco",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/spinco.png",
-    title: "2000 TL DENEME BONUSU",
-    url: "https://t.ly/bonuskutususpc"
-  },
-  {
-  site: "Betwoon",
-  logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betwoon.png",
-  title: "500 TL DENEME BONUSU",
-  url: "https://cutt.ly/bonuskutusubw"
-},
-{
-  site: "Betsin",
-  logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betsin.png",
-  title: "2500 TL DENEME BONUSU",
-  url: "https://bsinplay.com/sin267"
-}
-  {
-  site: "Marsbahis",
-  logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/marsbahis.png",
-  title: "200 TL DENEME BONUSU",
-  url: "https://dub.sh/marsgit"
-}
-  {
-    site: "Radissonbet",
-    logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/radissonbet.png",
-    title: "500 TL DENEME BONUSU",
-    url: "https://ptns.io/dEVSR"
-  }
+  { site: "Maxwin", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/maxwin.png", title: "300 TL DENEME BONUSU", url: "https://rebrand.ly/bonuskutusumax" },
+  { site: "Superbet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/superbet.png", title: "250 TL DENEME BONUSU", url: "https://tracker.superortaklik.com/link?btag=105918253_497350" },
+  { site: "Damabet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/damabet.png", title: "500 TL DENEME BONUSU", url: "https://t.ly/bkutusudama" },
+  { site: "Betgar", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betgar.png", title: "5000 TL DENEME BONUSU", url: "https://girgara.com/MLIcUN" },
+  { site: "Roketbet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/roketbet.png", title: "2500 TL DENEME BONUSU", url: "https://roketlegir.com/y91ZMX" },
+  { site: "Romabet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/romabet.png", title: "500 TL DENEME BONUSU", url: "https://romagir1.com/GWaSyy" },
+  { site: "Venombet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/venombet.png", title: "2500 TL DENEME BONUSU", url: "https://rebrand.ly/bonuskutusuvnm" },
+  { site: "Betwild", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betwild.png", title: "1000 TL DENEME BONUSU", url: "https://t.ly/bonuskutusubwild" },
+  { site: "Dedebet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/dedebet.png", title: "500 TL DENEME BONUSU", url: "https://t.ly/bonuskutusudede" },
+  { site: "Bahibom", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/bahibom.png", title: "1000 TL DENEME BONUSU", url: "https://t.ly/bonuskutusubahibom" },
+  { site: "Sloto", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/sloto.png", title: "250 TL DENEME BONUSU", url: "https://t.ly/bonuskutususloto" },
+  { site: "Palazzobet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/palazzobet.png", title: "1000 TL DENEME BONUSU", url: "https://t.ly/Pzgirbonuskutusu" },
+  { site: "Spinco", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/spinco.png", title: "2000 TL DENEME BONUSU", url: "https://t.ly/bonuskutususpc" },
+  { site: "Betwoon", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betwoon.png", title: "500 TL DENEME BONUSU", url: "https://cutt.ly/bonuskutusubw" },
+  { site: "Betsin", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betsin.png", title: "2500 TL DENEME BONUSU", url: "https://bsinplay.com/sin267" },
+  { site: "Marsbahis", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/marsbahis.png", title: "200 TL DENEME BONUSU", url: "https://dub.sh/marsgit" },
+  { site: "Radissonbet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/radissonbet.png", title: "500 TL DENEME BONUSU", url: "https://ptns.io/dEVSR" }
 ];
 
 function shuffleArray(array) {
   const shuffled = array.slice();
-
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = shuffled[i];
     shuffled[i] = shuffled[j];
     shuffled[j] = temp;
   }
-
   return shuffled;
 }
 
@@ -617,53 +630,32 @@ function createBonusCard(bonus) {
 
   card.innerHTML = `
     ${bonus.featured ? '<div class="featured-label">ÖNE ÇIKAN BONUS</div>' : ''}
-
     <div class="bonus-row">
       <div class="logo-box">
         <img src="${bonus.logo}" alt="${bonus.site}">
       </div>
-
       <div class="bonus-title">${bonus.title}</div>
     </div>
-
-    <a class="btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">
-      BONUSU AL
-    </a>
+    <a class="btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">BONUSU AL</a>
   `;
 
   return card;
 }
 
-function createTelegramBanner(banner) {
-  const link = document.createElement("a");
-  link.className = "telegram-banner";
-  link.href = banner.url;
-  link.target = "_blank";
-  link.rel = "nofollow noopener";
-
-  link.innerHTML = `
-    <div class="telegram-icon" aria-hidden="true">
-      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#229ED9" d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0z"/>
-        <path fill="#fff" d="M179.4 74.4c1.8-11.7-4.5-16.3-13-12.8L48.8 106.9c-8 3.1-7.9 7.6-1.4 9.6l30.2 9.4 70.1-44.2c3.3-2 6.3-.9 3.8 1.4l-56.8 51.3-2.2 31.8c3.2 0 4.6-1.5 6.4-3.2l15.4-15 32 23.6c5.9 3.3 10.1 1.6 11.6-5.5l21.5-91.7z"/>
-      </svg>
-    </div>
-
-    <div class="telegram-text">${banner.title}</div>
-
-    <div class="telegram-cta">HEMEN KATIL</div>
-  `;
-
-  return link;
-}
-
 const bonusList = document.getElementById("bonus-list");
-
 bonusList.appendChild(createBonusCard(featuredBonus));
-bonusList.appendChild(createTelegramBanner(telegramBanner));
-
 shuffleArray(otherBonuses).forEach(function(bonus) {
   bonusList.appendChild(createBonusCard(bonus));
+});
+
+const shareText = "18 farklı deneme bonusu tek linkte!\n\nhttps://dub.sh/sitebonuslari";
+const encodedShareText = encodeURIComponent(shareText);
+
+document.getElementById("share-whatsapp").href = "https://wa.me/?text=" + encodedShareText;
+document.getElementById("share-telegram").href = "https://t.me/share/url?url=https%3A%2F%2Fdub.sh%2Fsitebonuslari&text=" + encodeURIComponent("18 farklı deneme bonusu tek linkte!");
+
+document.getElementById("congrats-close").addEventListener("click", function() {
+  document.getElementById("congrats-banner").classList.add("is-hidden");
 });
 </script>
 

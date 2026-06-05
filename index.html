@@ -34,7 +34,7 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .header h1 {
@@ -67,24 +67,29 @@ body {
 }
 
 .featured-card {
-  padding: 17px;
-  border: 2px solid #f3d7e4;
-  background: linear-gradient(180deg, #ffffff 0%, #fffafb 100%);
-  box-shadow: 0 8px 22px rgba(190,24,93,.08);
+  padding: 18px;
+  border: 2px solid #ec4899;
+  background:
+    radial-gradient(circle at top right, rgba(236,72,153,.16), transparent 35%),
+    linear-gradient(180deg, #ffffff 0%, #fff3f8 100%);
+  box-shadow:
+    0 10px 28px rgba(190,24,93,.16),
+    0 2px 8px rgba(0,0,0,.05);
 }
 
 .featured-label {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 11px;
-  padding: 6px 11px;
+  margin-bottom: 12px;
+  padding: 7px 12px;
   border-radius: 999px;
   background: #ec4899;
   color: #ffffff;
   font-size: 11px;
   line-height: 1;
   font-weight: 900;
-  letter-spacing: .3px;
+  letter-spacing: .4px;
+  box-shadow: 0 4px 10px rgba(236,72,153,.25);
 }
 
 .bonus-row {
@@ -112,14 +117,14 @@ body {
 }
 
 .featured-card .logo-box {
-  width: 138px;
-  min-width: 138px;
-  height: 62px;
+  width: 148px;
+  min-width: 148px;
+  height: 66px;
   background: #111827;
   border: 1px solid #374151;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 3px 8px rgba(0,0,0,.18);
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 5px 14px rgba(0,0,0,.22);
 }
 
 .logo-box img {
@@ -140,8 +145,9 @@ body {
 }
 
 .featured-card .bonus-title {
-  font-size: 26px;
+  font-size: 28px;
   color: #be185d;
+  letter-spacing: -0.7px;
 }
 
 .btn {
@@ -165,13 +171,14 @@ body {
 }
 
 .featured-card .btn {
-  padding: 17px 16px;
-  font-size: 16px;
+  padding: 18px 16px;
+  font-size: 17px;
   background: #be185d;
   animation: featuredPulse 1.8s infinite;
 }
 
-.btn::before {
+.btn::before,
+.telegram-banner::before {
   content: "";
   position: absolute;
   top: 0;
@@ -191,8 +198,80 @@ body {
   background: #9d174d;
 }
 
-.btn:active {
+.btn:active,
+.telegram-banner:active {
   transform: scale(.96);
+}
+
+/* TELEGRAM BANNER */
+.telegram-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 17px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at top right, rgba(255,255,255,.28), transparent 32%),
+    linear-gradient(135deg, #2AABEE 0%, #229ED9 48%, #0f7fc2 100%);
+  border: 1px solid rgba(255,255,255,.22);
+  box-shadow:
+    0 9px 22px rgba(34,158,217,.28),
+    0 3px 10px rgba(0,0,0,.08);
+  position: relative;
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.telegram-banner:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 26px rgba(34,158,217,.34),
+    0 4px 12px rgba(0,0,0,.10);
+}
+
+.telegram-icon {
+  width: 54px;
+  min-width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8),
+    0 4px 10px rgba(0,0,0,.12);
+}
+
+.telegram-icon svg {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.telegram-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 950;
+  letter-spacing: -0.25px;
+}
+
+.telegram-cta {
+  display: none;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #168acd;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 950;
+  white-space: nowrap;
+  box-shadow: 0 3px 9px rgba(0,0,0,.12);
 }
 
 @keyframes pulse {
@@ -203,7 +282,7 @@ body {
 
 @keyframes featuredPulse {
   0% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0.55); }
-  70% { box-shadow: 0 0 0 15px rgba(190, 24, 93, 0); }
+  70% { box-shadow: 0 0 0 16px rgba(190, 24, 93, 0); }
   100% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0); }
 }
 
@@ -223,7 +302,7 @@ body {
   }
 
   .featured-card {
-    padding: 14px;
+    padding: 15px;
   }
 
   .bonus-row {
@@ -238,9 +317,9 @@ body {
   }
 
   .featured-card .logo-box {
-    width: 116px;
-    min-width: 116px;
-    height: 54px;
+    width: 122px;
+    min-width: 122px;
+    height: 56px;
   }
 
   .bonus-title {
@@ -248,12 +327,38 @@ body {
   }
 
   .featured-card .bonus-title {
-    font-size: 22px;
+    font-size: 23px;
   }
 
   .btn {
     padding: 14px;
     font-size: 14px;
+  }
+
+  .featured-card .btn {
+    padding: 16px;
+    font-size: 15px;
+  }
+
+  .telegram-banner {
+    gap: 11px;
+    padding: 15px 13px;
+    border-radius: 18px;
+  }
+
+  .telegram-icon {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+  }
+
+  .telegram-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .telegram-text {
+    font-size: 15px;
   }
 }
 
@@ -279,7 +384,7 @@ body {
   }
 
   .featured-card {
-    padding: 22px;
+    padding: 24px;
   }
 
   .bonus-card.featured-card {
@@ -288,8 +393,8 @@ body {
 
   .featured-label {
     position: absolute;
-    top: -12px;
-    left: 22px;
+    top: -13px;
+    left: 24px;
     margin-bottom: 0;
   }
 
@@ -306,9 +411,9 @@ body {
   }
 
   .featured-card .logo-box {
-    width: 190px;
-    min-width: 190px;
-    height: 74px;
+    width: 210px;
+    min-width: 210px;
+    height: 80px;
   }
 
   .bonus-title {
@@ -316,7 +421,7 @@ body {
   }
 
   .featured-card .bonus-title {
-    font-size: 33px;
+    font-size: 36px;
   }
 
   .btn {
@@ -326,8 +431,34 @@ body {
   }
 
   .featured-card .btn {
-    width: 200px;
-    padding: 19px 16px;
+    width: 210px;
+    padding: 20px 16px;
+  }
+
+  .telegram-banner {
+    padding: 20px 22px;
+    border-radius: 22px;
+  }
+
+  .telegram-icon {
+    width: 64px;
+    min-width: 64px;
+    height: 64px;
+  }
+
+  .telegram-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .telegram-text {
+    font-size: 24px;
+  }
+
+  .telegram-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>
@@ -355,6 +486,11 @@ const featuredBonus = {
   title: "1000 TL DENEME BONUSU",
   url: "https://shorx.one/bkutusugp",
   featured: true
+};
+
+const telegramBanner = {
+  title: "DENEME BONUSLARI İÇİN TELEGRAM GRUBUNA KATIL",
+  url: "https://t.me/+SzPjbBNiD3M1YjU0"
 };
 
 const otherBonuses = [
@@ -462,7 +598,7 @@ function createBonusCard(bonus) {
   card.className = bonus.featured ? "bonus-card featured-card" : "bonus-card";
 
   card.innerHTML = `
-    ${bonus.featured ? '<div class="featured-label">TÜRKİYE'NİN EN İYİ SİTESİ</div>' : ''}
+    ${bonus.featured ? '<div class="featured-label">ÖNE ÇIKAN BONUS</div>' : ''}
 
     <div class="bonus-row">
       <div class="logo-box">
@@ -480,9 +616,33 @@ function createBonusCard(bonus) {
   return card;
 }
 
+function createTelegramBanner(banner) {
+  const link = document.createElement("a");
+  link.className = "telegram-banner";
+  link.href = banner.url;
+  link.target = "_blank";
+  link.rel = "nofollow noopener";
+
+  link.innerHTML = `
+    <div class="telegram-icon" aria-hidden="true">
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#229ED9" d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0z"/>
+        <path fill="#fff" d="M179.4 74.4c1.8-11.7-4.5-16.3-13-12.8L48.8 106.9c-8 3.1-7.9 7.6-1.4 9.6l30.2 9.4 70.1-44.2c3.3-2 6.3-.9 3.8 1.4l-56.8 51.3-2.2 31.8c3.2 0 4.6-1.5 6.4-3.2l15.4-15 32 23.6c5.9 3.3 10.1 1.6 11.6-5.5l21.5-91.7z"/>
+      </svg>
+    </div>
+
+    <div class="telegram-text">${banner.title}</div>
+
+    <div class="telegram-cta">HEMEN KATIL</div>
+  `;
+
+  return link;
+}
+
 const bonusList = document.getElementById("bonus-list");
 
 bonusList.appendChild(createBonusCard(featuredBonus));
+bonusList.appendChild(createTelegramBanner(telegramBanner));
 
 shuffleArray(otherBonuses).forEach(function(bonus) {
   bonusList.appendChild(createBonusCard(bonus));

@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8" />
-<title>Bonusum Gelsin · Deneme Bonusları</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+```html
 <style>
 * { box-sizing: border-box; }
 
@@ -23,7 +17,7 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 h1 {
@@ -49,22 +43,26 @@ h1 {
   box-shadow: 0 3px 10px rgba(0,0,0,.07);
 }
 
+.bonus-main {
+  margin-bottom: 12px;
+}
+
 .bonus-top {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .logo-box {
-  width: 108px;
-  min-width: 108px;
-  height: 44px;
+  width: 110px;
+  min-width: 110px;
+  height: 48px;
   background: #f3f4f6;
   border-radius: 999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 12px;
+  padding: 6px 12px;
 }
 
 .logo-box img {
@@ -75,58 +73,31 @@ h1 {
 
 .bonus-info {
   flex: 1;
-  min-width: 0;
-}
-
-.site-name {
-  font-size: 11px;
-  color: #777;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 3px;
 }
 
 .bonus-title {
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1.25;
-}
-
-.bonus-detail {
-  margin-top: 8px;
-  font-size: 13px;
-  color: #555;
-  line-height: 1.35;
-}
-
-.tag {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 11px;
-  padding: 4px 9px;
-  border-radius: 999px;
-  background: #fce7f3;
-  color: #be185d;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #111;
 }
 
 .btn {
   display: block;
   width: 100%;
-  margin-top: 12px;
-  padding: 14px;
-  background: #ec4899;
-  color: #fff;
   text-align: center;
   text-decoration: none;
+  background: #ec4899;
+  color: #fff;
+  padding: 14px;
   border-radius: 12px;
   font-size: 15px;
   font-weight: 800;
   box-shadow: 0 3px 8px rgba(236,72,153,.28);
 }
 
-.btn:active {
-  transform: scale(.98);
+.btn:hover {
+  background: #db2777;
 }
 
 @media (min-width: 700px) {
@@ -142,25 +113,24 @@ h1 {
 
   .bonus-main {
     flex: 1;
+    margin-bottom: 0;
   }
 
   .btn {
-    width: 160px;
-    margin-top: 0;
+    width: 180px;
   }
 }
 </style>
-</head>
-
-<body>
 
 <div class="page-container">
+
   <div class="header">
     <h1>Deneme Bonusları</h1>
-    <div class="subtitle">17 farklı siteden güncel deneme bonusları</div>
+    <div class="subtitle">Güncel deneme bonusları</div>
   </div>
 
   <div id="bonus-list" class="bonus-list"></div>
+
 </div>
 
 <script>
@@ -169,155 +139,78 @@ const bonuses = [
     site: "Ligobet",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/ligobet.png",
     title: "750 TL Deneme Bonusu",
-    detail: "Ücretsiz başlangıç teklifi ile hemen oyna!",
     url: "https://cutt.ly/teEgZLls"
   },
   {
     site: "Maxwin",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/maxwin.png",
     title: "300 TL Deneme Bonusu",
-    detail: "Üye olan herkese özel nakit bonus.",
     url: "https://cutt.ly/maxsocial?"
   },
   {
     site: "Mobilbahis",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/mobilbahis.png",
-    title: "100 Freespin Deneme Bonusu",
-    detail: "Yeni üyelere özel ücretsiz çevirme hakkı.",
+    title: "100 Freespin",
     url: "https://tinyurl.com/2kh8e3ab"
   },
   {
     site: "Rokubet",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/rokubet.png",
-    title: "335 Freespin Deneme Bonusu",
-    detail: "İlk üyeliğe özel bedava çevirme fırsatı.",
+    title: "335 Freespin",
     url: "https://rokubetr.com/"
   },
   {
     site: "Tipobet",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/tipobet.png",
-    title: "750 TL Freebet Deneme Bonusu",
-    detail: "Yeni üyelere özel ücretsiz kupon hakkı.",
+    title: "750 TL Freebet",
     url: "https://goo.su/Tipobet"
-  },
-
-  {
-    site: "Site 6",
-    logoUrl: "LOGO_URL_6",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_6"
-  },
-  {
-    site: "Site 7",
-    logoUrl: "LOGO_URL_7",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_7"
-  },
-  {
-    site: "Site 8",
-    logoUrl: "LOGO_URL_8",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_8"
-  },
-  {
-    site: "Site 9",
-    logoUrl: "LOGO_URL_9",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_9"
-  },
-  {
-    site: "Site 10",
-    logoUrl: "LOGO_URL_10",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_10"
-  },
-  {
-    site: "Site 11",
-    logoUrl: "LOGO_URL_11",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_11"
-  },
-  {
-    site: "Site 12",
-    logoUrl: "LOGO_URL_12",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_12"
-  },
-  {
-    site: "Site 13",
-    logoUrl: "LOGO_URL_13",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_13"
-  },
-  {
-    site: "Site 14",
-    logoUrl: "LOGO_URL_14",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_14"
-  },
-  {
-    site: "Site 15",
-    logoUrl: "LOGO_URL_15",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_15"
-  },
-  {
-    site: "Site 16",
-    logoUrl: "LOGO_URL_16",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_16"
-  },
-  {
-    site: "Site 17",
-    logoUrl: "LOGO_URL_17",
-    title: "Deneme Bonusu",
-    detail: "Bonus açıklamasını buraya yaz.",
-    url: "SITE_LINK_17"
   }
+
+  /* BURAYA 17 SİTENİN TAMAMINI EKLE */
 ];
 
 const list = document.getElementById("bonus-list");
 
 bonuses.forEach(bonus => {
+
   const card = document.createElement("div");
   card.className = "bonus-card";
 
   card.innerHTML = `
     <div class="bonus-main">
+
       <div class="bonus-top">
+
         <div class="logo-box">
-          <img src="${bonus.logoUrl}" alt="${bonus.site}" onerror="this.style.display='none'">
+          <img
+            src="${bonus.logoUrl}"
+            alt="${bonus.site}"
+            onerror="this.style.display='none'"
+          >
         </div>
 
         <div class="bonus-info">
-          <div class="site-name">${bonus.site}</div>
-          <div class="bonus-title">${bonus.title}</div>
+          <div class="bonus-title">
+            ${bonus.title}
+          </div>
         </div>
+
       </div>
 
-      <div class="bonus-detail">${bonus.detail}</div>
-      <span class="tag">Deneme Bonusu</span>
     </div>
 
-    <a class="btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">
+    <a
+      class="btn"
+      href="${bonus.url}"
+      target="_blank"
+      rel="nofollow noopener"
+    >
       Bonusumu Al
     </a>
   `;
 
   list.appendChild(card);
+
 });
 </script>
-
-</body>
-</html>
+```

@@ -1,397 +1,322 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Bonusum Gelsin · Günlük Bonuslar</title>
+<meta charset="UTF-8" />
+<title>Bonusum Gelsin · Deneme Bonusları</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
-  * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-  body {
-    font-family: system-ui, sans-serif;
-    margin: 0;
-    padding: 16px;
-    background: #f6f7f9;
-  }
+body {
+  margin: 0;
+  padding: 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f6f7f9;
+  color: #111;
+}
 
-  /* ORTALANMIŞ ANA CONTAINER */
+.page-container {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 8px 0 4px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #666;
+}
+
+.bonus-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bonus-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.07);
+}
+
+.bonus-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-box {
+  width: 108px;
+  min-width: 108px;
+  height: 44px;
+  background: #f3f4f6;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+}
+
+.logo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.bonus-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.site-name {
+  font-size: 11px;
+  color: #777;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.bonus-title {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.bonus-detail {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.35;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #fce7f3;
+  color: #be185d;
+  font-weight: 700;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  background: #ec4899;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 3px 8px rgba(236,72,153,.28);
+}
+
+.btn:active {
+  transform: scale(.98);
+}
+
+@media (min-width: 700px) {
   .page-container {
-    max-width: 960px;      /* masaüstünde dar ve ortalı görünüm */
-    margin: 0 auto;
+    max-width: 760px;
   }
 
-  h1 {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-
-  .subtitle {
-    text-align: center;
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 14px;
-  }
-
-  /* FİLTRELER */
-  .filter-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  .filter-pill {
-    padding: 6px 12px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 13px;
-    white-space: nowrap;
-  }
-
-  .filter-pill.active {
-    background: #ec4899;     /* pembe accent */
-    color: #fff;
-    border-color: #ec4899;
-  }
-
-  /* ANA KART */
-  .section {
-    background: #fff;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.06);
-  }
-
-  /* BONUS KART — MASAÜSTÜ */
-  .bonus-item {
+  .bonus-card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 0;
-    border-bottom: 1px solid #ddd;
-  }
-  .bonus-item:last-child {
-    border-bottom: none;
+    gap: 16px;
   }
 
-  /* LOGO */
-  .bonus-left {
-    min-width: 160px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .site-logo {
-    width: 140px;
-    height: 44px;
-    object-fit: contain;
-    background: #f3f4f6;
-    border-radius: 999px;
-    padding: 6px 12px;
-    display: block;
-  }
-
-  /* METİN */
-  .bonus-center {
+  .bonus-main {
     flex: 1;
   }
 
-  .bonus-title {
-    font-size: 15px;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: #111;
-  }
-
-  .bonus-detail {
-    color: #666;
-    font-size: 12px;
-    margin-bottom: 6px;
-  }
-
-  .bonus-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
-  .tag-pill {
-    font-size: 10px;
-    padding: 3px 7px;
-    border-radius: 999px;
-    background: #f3f4f6;
-    color: #374151;
-  }
-
-  /* CTA — MASAÜSTÜ */
-  .bonus-right {
-    min-width: 140px;
-    text-align: right;
-    display: flex;
-    justify-content: flex-end;
-  }
-
   .btn {
-    background: #ec4899;     /* pembe buton */
-    color: white;
-    padding: 12px 22px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 700;
-    white-space: nowrap;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    transition: all .15s ease;
+    width: 160px;
+    margin-top: 0;
   }
-
-  .btn:hover {
-    background: #db2777;     /* koyu pembe hover */
-    transform: translateY(-1px);
-  }
-
-  .empty {
-    text-align: center;
-    font-size: 13px;
-    color: #777;
-    margin-top: 16px;
-  }
-
-  /* ----------------------------- */
-  /*        MOBİL OPTİMİZASYON     */
-  /* ----------------------------- */
-  @media (max-width: 600px) {
-
-    /* Üst satır: logo + metin, kırılmadan */
-    .bonus-item {
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .bonus-left {
-      width: 100px;
-      min-width: 100px;
-      justify-content: flex-start;
-    }
-
-    .site-logo {
-      width: 100px;
-      height: 34px;
-      padding: 6px 10px;
-    }
-
-    /* Metin LOGO'NUN SAĞINDA, tek blok */
-    .bonus-center {
-      flex: 1;
-      min-width: 0;
-    }
-
-    /* CTA ALTA */
-    .bonus-right {
-      flex: 0 0 100%;
-      margin-top: 4px;
-      text-align: left;
-      justify-content: flex-start;
-    }
-
-    .btn {
-      width: 100%;
-      font-size: 14px;
-      padding: 14px;
-    }
-
-    .page-container {
-      max-width: 100%;
-    }
-  }
+}
 </style>
 </head>
 
 <body>
 
 <div class="page-container">
-  <h1>Bonusum Gelsin</h1>
-  <div class="subtitle">Bugün hangi bonus cebine gelsin? Filtrele · Seç · Tıkla.</div>
-
-  <!-- FİLTRELER -->
-  <div class="filter-row">
-    <div class="filter-pill active" data-filter="tum">Tümü</div>
-    <div class="filter-pill" data-filter="yatirim-sartsiz">Yatırım şartsız</div>
-    <div class="filter-pill" data-filter="cevrim-sartsiz">Çevrim şartsız</div>
-    <div class="filter-pill" data-filter="dusuk-cevrim">Düşük çevrimli</div>
-    <div class="filter-pill" data-filter="hosgeldin">Hoş geldin bonusu</div>
-    <div class="filter-pill" data-filter="freebet">Freebet</div>
-    <div class="filter-pill" data-filter="freespin">Freespin</div>
-    <div class="filter-pill" data-filter="deneme-bonusu">Deneme bonusu</div>
-    <div class="filter-pill" data-filter="kayip-bonusu">Kayıp bonusu</div>
+  <div class="header">
+    <h1>Deneme Bonusları</h1>
+    <div class="subtitle">17 farklı siteden güncel deneme bonusları</div>
   </div>
 
-  <div id="bonus-wrapper"></div>
-  <div id="empty" class="empty" style="display:none;">Bu filtreye uygun bonus bulunamadı.</div>
+  <div id="bonus-list" class="bonus-list"></div>
 </div>
 
 <script>
-const TAG_LABELS = {
-  "yatirim-sartsiz": "Yatırım şartsız",
-  "cevrim-sartsiz": "Çevrim şartsız",
-  "dusuk-cevrim": "Düşük çevrimli",
-  "hosgeldin": "Hoş geldin",
-  "freebet": "Freebet",
-  "freespin": "Freespin",
-  "deneme-bonusu": "Deneme bonusu",
-  "kayip-bonusu": "Kayıp bonusu"
-};
-
-/* BONUS VERİLERİ */
 const bonuses = [
   {
-    site: "1xbet",
-    logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/1xbet.png",
-    title: "55.000 TL + 150 FS Hoş Geldin Bonusu",
-    detail: "İlk 4 para yatırma işleminize özel teklif!",
-    url: "https://t2m.io/1x-strlink",
-    tags: ["hosgeldin", "dusuk-cevrim"]
-  },
-  {
-    site: "1xbet",
-    logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/1xbet.png",
-    title: "%25 Net Kayıp Bonusu",
-    detail: "Tüm alanlara baremsiz kayıp bonusu ayrıcalığı!",
-    url: "https://t2m.io/1x-strlink",
-    tags: ["kayip-bonusu", "cevrim-sartsiz"]
-  },
-
-  {
-    site: "casinomhub",
-    logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/casinohub.png",
-    title: "%375 Hoş Geldin Bonusu",
-    detail: "Islak başlangıçlar seni bekliyor!",
-    url: "https://tls.tc/GzM8J?",
-    tags: ["hosgeldin", "dusuk-cevrim"]
-  },
-  {
-    site: "casinomhub",
-    logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/casinohub.png",
-    title: "%30'a varan Kayıp Bonusu",
-    detail: "Yüksek oranlı kayıp bonusu ile masadan erken kalkmak yok!",
-    url: "https://tls.tc/GzM8J?",
-    tags: ["kayip-bonusu", "cevrim-sartsiz"]
-  },
-
-  {
-    site: "ligobet",
+    site: "Ligobet",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/ligobet.png",
     title: "750 TL Deneme Bonusu",
     detail: "Ücretsiz başlangıç teklifi ile hemen oyna!",
-    url: "https://cutt.ly/teEgZLls",
-    tags: ["cevrim-sartsiz", "deneme-bonusu"]
+    url: "https://cutt.ly/teEgZLls"
   },
-
   {
-    site: "maxwin",
+    site: "Maxwin",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/maxwin.png",
-    title: "Üye Olan Herkese 300 TL Hediye",
-    detail: "Tüm alanlarda geçerli nakit bonus!",
-    url: "https://cutt.ly/maxsocial?",
-    tags: ["yatirim-sartsiz", "cevrim-sartsiz", "deneme-bonusu"]
+    title: "300 TL Deneme Bonusu",
+    detail: "Üye olan herkese özel nakit bonus.",
+    url: "https://cutt.ly/maxsocial?"
   },
-
   {
-    site: "mobilbahis",
+    site: "Mobilbahis",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/mobilbahis.png",
-    title: "Yeni Üyelere 100 Freespin",
-    detail: "Ücretsiz çevirme hakkı ile kazan!",
-    url: "https://tinyurl.com/2kh8e3ab",
-    tags: ["yatirim-sartsiz", "freespin"]
+    title: "100 Freespin Deneme Bonusu",
+    detail: "Yeni üyelere özel ücretsiz çevirme hakkı.",
+    url: "https://tinyurl.com/2kh8e3ab"
   },
-
   {
-    site: "rokubet",
+    site: "Rokubet",
     logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/rokubet.png",
-    title: "Herkese 335 Freespin Hediye",
-    detail: "İlk üyeliğine özel bedava çevir!",
-    url: "https://rokubetr.com/",
-    tags: ["yatirim-sartsiz", "freespin"]
+    title: "335 Freespin Deneme Bonusu",
+    detail: "İlk üyeliğe özel bedava çevirme fırsatı.",
+    url: "https://rokubetr.com/"
+  },
+  {
+    site: "Tipobet",
+    logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/tipobet.png",
+    title: "750 TL Freebet Deneme Bonusu",
+    detail: "Yeni üyelere özel ücretsiz kupon hakkı.",
+    url: "https://goo.su/Tipobet"
   },
 
   {
-    site: "tipobet",
-    logoUrl: "https://raw.githubusercontent.com/thexprojects/filtre-bonus/main/logos/tipobet.png",
-    title: "Yeni Üyelere 750 TL Freebet",
-    detail: "Yapacağın ilk kupon ücretsiz!",
-    url: "https://goo.su/Tipobet",
-    tags: ["freebet", "yatirim-sartsiz"]
+    site: "Site 6",
+    logoUrl: "LOGO_URL_6",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_6"
+  },
+  {
+    site: "Site 7",
+    logoUrl: "LOGO_URL_7",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_7"
+  },
+  {
+    site: "Site 8",
+    logoUrl: "LOGO_URL_8",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_8"
+  },
+  {
+    site: "Site 9",
+    logoUrl: "LOGO_URL_9",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_9"
+  },
+  {
+    site: "Site 10",
+    logoUrl: "LOGO_URL_10",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_10"
+  },
+  {
+    site: "Site 11",
+    logoUrl: "LOGO_URL_11",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_11"
+  },
+  {
+    site: "Site 12",
+    logoUrl: "LOGO_URL_12",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_12"
+  },
+  {
+    site: "Site 13",
+    logoUrl: "LOGO_URL_13",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_13"
+  },
+  {
+    site: "Site 14",
+    logoUrl: "LOGO_URL_14",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_14"
+  },
+  {
+    site: "Site 15",
+    logoUrl: "LOGO_URL_15",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_15"
+  },
+  {
+    site: "Site 16",
+    logoUrl: "LOGO_URL_16",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_16"
+  },
+  {
+    site: "Site 17",
+    logoUrl: "LOGO_URL_17",
+    title: "Deneme Bonusu",
+    detail: "Bonus açıklamasını buraya yaz.",
+    url: "SITE_LINK_17"
   }
 ];
 
-let currentFilter = "tum";
+const list = document.getElementById("bonus-list");
 
-function renderBonuses() {
-  const wrapper = document.getElementById("bonus-wrapper");
-  const empty = document.getElementById("empty");
-  wrapper.innerHTML = "";
+bonuses.forEach(bonus => {
+  const card = document.createElement("div");
+  card.className = "bonus-card";
 
-  const filtered = bonuses.filter(b =>
-    currentFilter === "tum" ? true : b.tags.includes(currentFilter)
-  );
+  card.innerHTML = `
+    <div class="bonus-main">
+      <div class="bonus-top">
+        <div class="logo-box">
+          <img src="${bonus.logoUrl}" alt="${bonus.site}" onerror="this.style.display='none'">
+        </div>
 
-  empty.style.display = filtered.length ? "none" : "block";
-
-  const section = document.createElement("div");
-  section.className = "section";
-
-  filtered.forEach(b => {
-    const tagsHtml = b.tags
-      .map(t => `<span class="tag-pill">${TAG_LABELS[t]}</span>`)
-      .join("");
-
-    const item = document.createElement("div");
-    item.className = "bonus-item";
-
-    item.innerHTML = `
-      <div class="bonus-left">
-        <img class="site-logo"
-             src="${b.logoUrl}"
-             alt="${b.site}"
-             onerror="this.style.visibility='hidden';">
+        <div class="bonus-info">
+          <div class="site-name">${bonus.site}</div>
+          <div class="bonus-title">${bonus.title}</div>
+        </div>
       </div>
 
-      <div class="bonus-center">
-        <div class="bonus-title">${b.title}</div>
-        <div class="bonus-detail">${b.detail}</div>
-        <div class="bonus-tags">${tagsHtml}</div>
-      </div>
+      <div class="bonus-detail">${bonus.detail}</div>
+      <span class="tag">Deneme Bonusu</span>
+    </div>
 
-      <div class="bonus-right">
-        <button class="btn" onclick="window.location.href='${b.url}'">Bonusumu Al</button>
-      </div>
-    `;
+    <a class="btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">
+      Bonusumu Al
+    </a>
+  `;
 
-    section.appendChild(item);
-  });
-
-  wrapper.appendChild(section);
-}
-
-/* Filtre tıklamaları */
-document.querySelectorAll(".filter-pill").forEach(pill => {
-  pill.addEventListener("click", () => {
-    document.querySelectorAll(".filter-pill").forEach(p => p.classList.remove("active"));
-    pill.classList.add("active");
-    currentFilter = pill.dataset.filter;
-    renderBonuses();
-  });
+  list.appendChild(card);
 });
-
-renderBonuses();
 </script>
 
 </body>

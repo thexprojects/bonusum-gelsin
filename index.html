@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -22,38 +23,38 @@ body {
 .page {
   width: 100%;
   min-height: 100vh;
-  padding: 14px 10px 90px;
+  padding: 10px 8px 82px;
 }
 
 .page-container {
   width: 100%;
-  max-width: 760px;
+  max-width: 980px;
   margin: 0 auto;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 .header h1 {
-  margin: 8px 0 5px;
-  font-size: 26px;
-  line-height: 1.1;
-  font-weight: 900;
-  letter-spacing: -0.4px;
+  margin: 5px 0 3px;
+  font-size: 23px;
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
-  font-size: 13px;
+  font-size: 12px;
   color: #6e6e73;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .congrats-banner {
-  margin-top: 16px;
-  padding: 16px 42px 16px 14px;
-  border-radius: 20px;
+  margin-top: 10px;
+  padding: 11px 38px 11px 12px;
+  border-radius: 17px;
   background:
     radial-gradient(circle at top right, rgba(236,72,153,.22), transparent 35%),
     linear-gradient(180deg, #ffffff 0%, #fff3f8 100%);
@@ -75,36 +76,36 @@ body {
 }
 
 .congrats-title {
-  display: block;
-  font-size: 26px;
+  display: inline;
+  font-size: 18px;
   line-height: 1;
   font-weight: 950;
   color: #ec4899;
-  letter-spacing: -0.6px;
+  letter-spacing: -0.4px;
   animation: textBlink 1.15s infinite;
 }
 
 .congrats-text {
-  display: block;
-  margin-top: 8px;
-  font-size: 17px;
-  line-height: 1.2;
+  display: inline;
+  margin-left: 4px;
+  font-size: 13px;
+  line-height: 1.15;
   font-weight: 950;
   color: #111827;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.2px;
 }
 
 .congrats-close {
   position: absolute;
-  top: 9px;
-  right: 9px;
-  width: 28px;
-  height: 28px;
+  top: 7px;
+  right: 7px;
+  width: 25px;
+  height: 25px;
   border: none;
   border-radius: 999px;
   background: rgba(17,24,39,.08);
   color: #111827;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1;
   font-weight: 900;
   cursor: pointer;
@@ -119,128 +120,92 @@ body {
   display: none;
 }
 
-.bonus-list {
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-}
-
-.bonus-card {
-  width: 100%;
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 14px;
-  border: 1px solid #ececec;
-  box-shadow: 0 2px 8px rgba(0,0,0,.045);
-}
-
+/* FEATURED */
 .featured-card {
-  padding: 18px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 13px;
+  border-radius: 20px;
   border: 2px solid #ec4899;
   background:
     radial-gradient(circle at top right, rgba(236,72,153,.16), transparent 35%),
     linear-gradient(180deg, #ffffff 0%, #fff3f8 100%);
   box-shadow:
-    0 10px 28px rgba(190,24,93,.16),
+    0 8px 22px rgba(190,24,93,.14),
     0 2px 8px rgba(0,0,0,.05);
 }
 
 .featured-label {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 12px;
-  padding: 7px 12px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
   border-radius: 999px;
   background: #ec4899;
   color: #ffffff;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1;
-  font-weight: 900;
-  letter-spacing: .4px;
-  box-shadow: 0 4px 10px rgba(236,72,153,.25);
+  font-weight: 950;
+  letter-spacing: .35px;
 }
 
-.bonus-row {
-  display: flex;
+.featured-inner {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
   align-items: center;
-  gap: 13px;
-  width: 100%;
 }
 
-.logo-box {
-  width: 118px;
-  min-width: 118px;
-  height: 52px;
+.featured-logo {
+  width: 140px;
+  height: 58px;
   border-radius: 999px;
   background: #111827;
   border: 1px solid #374151;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 2px 6px rgba(0,0,0,.15);
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 4px 12px rgba(0,0,0,.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 13px;
+  padding: 7px 14px;
   overflow: hidden;
 }
 
-.featured-card .logo-box {
-  width: 148px;
-  min-width: 148px;
-  height: 66px;
-}
-
-.logo-box img {
-  display: block;
+.featured-logo img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
-.bonus-title {
-  flex: 1;
-  min-width: 0;
-  font-size: 22px;
-  line-height: 1.12;
-  font-weight: 900;
-  color: #1d1d1f;
-  letter-spacing: -0.35px;
-}
-
-.featured-card .bonus-title {
-  font-size: 28px;
+.featured-title {
+  font-size: 25px;
+  line-height: 1.05;
+  font-weight: 950;
   color: #be185d;
   letter-spacing: -0.7px;
 }
 
-.btn {
+.featured-btn {
   display: block;
   width: 100%;
-  margin-top: 13px;
-  padding: 15px 16px;
+  margin-top: 10px;
+  padding: 13px 14px;
   border-radius: 14px;
-  background: #ec4899;
+  background: #be185d;
   color: #ffffff;
   text-align: center;
   text-decoration: none;
   font-size: 15px;
   line-height: 1;
-  font-weight: 900;
+  font-weight: 950;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.58);
-  animation: pulse 2s infinite;
-  transition: transform .15s ease, background .15s ease;
-}
-
-.featured-card .btn {
-  padding: 18px 16px;
-  font-size: 17px;
-  background: #be185d;
   animation: featuredPulse 1.8s infinite;
 }
 
-.btn::before {
+.featured-btn::before,
+.site-btn::before {
   content: "";
   position: absolute;
   top: 0;
@@ -251,53 +216,109 @@ body {
   animation: shine 3s infinite;
 }
 
-.btn:hover {
-  background: #db2777;
-  transform: translateY(-2px);
+/* GRID */
+.bonus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
 }
 
-.featured-card .btn:hover {
-  background: #9d174d;
+.site-card {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.045);
 }
 
-.btn:active,
-.share-button:active {
-  transform: scale(.96);
+.site-logo {
+  width: 100%;
+  height: 42px;
+  border-radius: 999px;
+  background: #111827;
+  border: 1px solid #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 9px;
+  overflow: hidden;
+}
+
+.site-logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.site-title {
+  height: 34px;
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.05;
+  font-weight: 950;
+  color: #111827;
+  letter-spacing: -0.25px;
+}
+
+.site-btn {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+  padding: 10px 5px;
+  border-radius: 11px;
+  background: #ec4899;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 950;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 rgba(236,72,153,.45);
+  animation: pulse 2s infinite;
 }
 
 .site-footer {
-  margin-top: 22px;
-  padding: 18px 10px 8px;
+  margin-top: 18px;
+  padding: 12px 10px 8px;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   color: #6e6e73;
 }
 
 .site-footer a {
   color: #229ED9;
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 850;
 }
 
+/* SHARE WIDGET */
 .share-widget {
   position: fixed;
-  right: 14px;
-  bottom: 14px;
+  right: 12px;
+  bottom: 12px;
   z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px;
+  gap: 7px;
 }
 
 .share-title {
-  padding: 7px 10px;
+  padding: 6px 9px;
   border-radius: 999px;
   background: rgba(255,255,255,.92);
   color: #1d1d1f;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1;
-  font-weight: 900;
+  font-weight: 950;
   box-shadow: 0 3px 10px rgba(0,0,0,.08);
   border: 1px solid rgba(0,0,0,.06);
   backdrop-filter: blur(8px);
@@ -305,12 +326,12 @@ body {
 
 .share-buttons {
   display: flex;
-  gap: 8px;
+  gap: 7px;
 }
 
 .share-button {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: 999px;
   display: flex;
   align-items: center;
@@ -320,8 +341,8 @@ body {
 }
 
 .share-button svg {
-  width: 23px;
-  height: 23px;
+  width: 21px;
+  height: 21px;
   display: block;
 }
 
@@ -329,15 +350,15 @@ body {
 .share-telegram { background: #229ED9; }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.50); }
-  70% { box-shadow: 0 0 0 12px rgba(236, 72, 153, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(236,72,153,.42); }
+  70% { box-shadow: 0 0 0 8px rgba(236,72,153,0); }
+  100% { box-shadow: 0 0 0 0 rgba(236,72,153,0); }
 }
 
 @keyframes featuredPulse {
-  0% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0.55); }
-  70% { box-shadow: 0 0 0 16px rgba(190, 24, 93, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(190, 24, 93, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(190,24,93,.50); }
+  70% { box-shadow: 0 0 0 13px rgba(190,24,93,0); }
+  100% { box-shadow: 0 0 0 0 rgba(190,24,93,0); }
 }
 
 @keyframes shine {
@@ -345,109 +366,66 @@ body {
 }
 
 @keyframes congratsPulse {
-  0% {
-    box-shadow:
-      0 0 0 0 rgba(236,72,153,.42),
-      0 8px 22px rgba(190,24,93,.12);
-  }
-  60% {
-    box-shadow:
-      0 0 0 10px rgba(236,72,153,0),
-      0 8px 22px rgba(190,24,93,.16);
-  }
-  100% {
-    box-shadow:
-      0 0 0 0 rgba(236,72,153,0),
-      0 8px 22px rgba(190,24,93,.12);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(236,72,153,.42), 0 8px 22px rgba(190,24,93,.12); }
+  60% { box-shadow: 0 0 0 9px rgba(236,72,153,0), 0 8px 22px rgba(190,24,93,.16); }
+  100% { box-shadow: 0 0 0 0 rgba(236,72,153,0), 0 8px 22px rgba(190,24,93,.12); }
 }
 
 @keyframes textBlink {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: .72; transform: scale(1.02); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: .66; }
 }
 
 @keyframes congratsShine {
   100% { left: 140%; }
 }
 
-@media (max-width: 380px) {
-  .page {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
-
-  .bonus-card {
-    padding: 12px;
-    border-radius: 18px;
-  }
-
-  .featured-card {
-    padding: 15px;
-  }
-
-  .bonus-row {
-    gap: 10px;
-  }
-
-  .logo-box {
-    width: 102px;
-    min-width: 102px;
-    height: 48px;
-    padding: 6px 10px;
-  }
-
-  .featured-card .logo-box {
-    width: 122px;
-    min-width: 122px;
-    height: 56px;
-  }
-
-  .bonus-title {
-    font-size: 19px;
-  }
-
-  .featured-card .bonus-title {
-    font-size: 23px;
-  }
-
-  .btn {
-    padding: 14px;
-    font-size: 14px;
-  }
-
-  .featured-card .btn {
-    padding: 16px;
-    font-size: 15px;
-  }
-
-  .congrats-banner {
-    padding: 14px 40px 14px 12px;
-    border-radius: 18px;
+@media (max-width: 360px) {
+  .header h1 {
+    font-size: 21px;
   }
 
   .congrats-title {
-    font-size: 23px;
+    font-size: 16px;
   }
 
   .congrats-text {
-    font-size: 14px;
+    font-size: 12px;
   }
 
-  .share-title {
+  .featured-inner {
+    grid-template-columns: 120px 1fr;
+    gap: 9px;
+  }
+
+  .featured-logo {
+    width: 120px;
+    height: 52px;
+  }
+
+  .featured-title {
+    font-size: 21px;
+  }
+
+  .site-logo {
+    height: 38px;
+    padding: 5px 7px;
+  }
+
+  .site-title {
+    font-size: 11px;
+    height: 31px;
+  }
+
+  .site-btn {
     font-size: 10px;
-    padding: 6px 9px;
-  }
-
-  .share-button {
-    width: 39px;
-    height: 39px;
+    padding: 9px 4px;
   }
 }
 
 @media (min-width: 700px) {
   .page {
-    padding: 24px 18px 100px;
+    padding: 22px 18px 100px;
   }
 
   .header h1 {
@@ -459,76 +437,65 @@ body {
   }
 
   .congrats-banner {
-    padding: 19px 48px 19px 20px;
+    padding: 16px 50px 16px 18px;
     border-radius: 22px;
   }
 
   .congrats-title {
-    font-size: 34px;
+    font-size: 30px;
   }
 
   .congrats-text {
-    font-size: 22px;
-  }
-
-  .bonus-card {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 17px 18px;
-    border-radius: 22px;
+    font-size: 21px;
   }
 
   .featured-card {
-    padding: 24px;
+    padding: 20px;
+    border-radius: 24px;
   }
 
-  .bonus-card.featured-card {
-    position: relative;
+  .featured-inner {
+    grid-template-columns: 230px 1fr 210px;
   }
 
-  .featured-label {
-    position: absolute;
-    top: -13px;
-    left: 24px;
-    margin-bottom: 0;
+  .featured-logo {
+    width: 230px;
+    height: 82px;
   }
 
-  .bonus-row {
-    flex: 1;
-    gap: 18px;
+  .featured-title {
+    font-size: 38px;
   }
 
-  .logo-box {
-    width: 150px;
-    min-width: 150px;
-    height: 58px;
-    padding: 8px 16px;
-  }
-
-  .featured-card .logo-box {
-    width: 210px;
-    min-width: 210px;
-    height: 80px;
-  }
-
-  .bonus-title {
-    font-size: 25px;
-  }
-
-  .featured-card .bonus-title {
-    font-size: 36px;
-  }
-
-  .btn {
-    width: 180px;
+  .featured-btn {
     margin-top: 0;
-    padding: 17px 16px;
+    padding: 20px 16px;
+    font-size: 16px;
   }
 
-  .featured-card .btn {
-    width: 210px;
-    padding: 20px 16px;
+  .bonus-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .site-card {
+    padding: 11px;
+    border-radius: 18px;
+  }
+
+  .site-logo {
+    height: 55px;
+    padding: 8px 12px;
+  }
+
+  .site-title {
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .site-btn {
+    padding: 12px 6px;
+    font-size: 12px;
   }
 
   .share-widget {
@@ -555,7 +522,8 @@ body {
       </div>
     </div>
 
-    <div id="bonus-list" class="bonus-list"></div>
+    <div id="featured-area"></div>
+    <div id="bonus-grid" class="bonus-grid"></div>
 
     <footer class="site-footer">
       <a href="https://t.me/clickprojects" target="_blank" rel="nofollow noopener">
@@ -589,8 +557,7 @@ const featuredBonus = {
   site: "Grandpashabet",
   logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/grandpashabet.png",
   title: "1000 TL DENEME BONUSU",
-  url: "https://shorx.one/bkutusugp",
-  featured: true
+  url: "https://shorx.one/bkutusugp"
 };
 
 const otherBonuses = [
@@ -624,28 +591,44 @@ function shuffleArray(array) {
   return shuffled;
 }
 
-function createBonusCard(bonus) {
+function createFeaturedCard(bonus) {
   const card = document.createElement("div");
-  card.className = bonus.featured ? "bonus-card featured-card" : "bonus-card";
+  card.className = "featured-card";
 
   card.innerHTML = `
-    ${bonus.featured ? '<div class="featured-label">ÖNE ÇIKAN BONUS</div>' : ''}
-    <div class="bonus-row">
-      <div class="logo-box">
+    <div class="featured-label">ÖNE ÇIKAN BONUS</div>
+    <div class="featured-inner">
+      <div class="featured-logo">
         <img src="${bonus.logo}" alt="${bonus.site}">
       </div>
-      <div class="bonus-title">${bonus.title}</div>
+      <div class="featured-title">${bonus.title}</div>
+      <a class="featured-btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">BONUSU AL</a>
     </div>
-    <a class="btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">BONUSU AL</a>
   `;
 
   return card;
 }
 
-const bonusList = document.getElementById("bonus-list");
-bonusList.appendChild(createBonusCard(featuredBonus));
+function createSiteCard(bonus) {
+  const card = document.createElement("div");
+  card.className = "site-card";
+
+  card.innerHTML = `
+    <div class="site-logo">
+      <img src="${bonus.logo}" alt="${bonus.site}">
+    </div>
+    <div class="site-title">${bonus.title}</div>
+    <a class="site-btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">BONUSU AL</a>
+  `;
+
+  return card;
+}
+
+document.getElementById("featured-area").appendChild(createFeaturedCard(featuredBonus));
+
+const bonusGrid = document.getElementById("bonus-grid");
 shuffleArray(otherBonuses).forEach(function(bonus) {
-  bonusList.appendChild(createBonusCard(bonus));
+  bonusGrid.appendChild(createSiteCard(bonus));
 });
 
 const shareText = "18 farklı deneme bonusu tek linkte!\n\nhttps://dub.sh/sitebonuslari";

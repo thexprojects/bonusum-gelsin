@@ -1,554 +1,200 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Bonusum Gelsin · Deneme Bonusları</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>8 Siteye de Üye Ol</title>
 
 <style>
-* { box-sizing: border-box; }
-
-html, body {
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  color:#fff;
 }
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f5f7;
-  color: #1d1d1f;
+.page{
+  min-height:100vh;
+  padding:10px 8px 14px;
 }
-
-.page {
-  width: 100%;
-  min-height: 100vh;
-  padding: 10px 6px 82px;
+.container{
+  width:100%;
+  max-width:980px;
+  margin:0 auto;
 }
-
-.page-container {
-  width: 100%;
-  max-width: 980px;
-  margin: 0 auto;
+.header{
+  text-align:center;
+  margin-bottom:10px;
 }
-
-.header {
-  text-align: center;
-  margin-bottom: 10px;
+.header h1{
+  margin:0 0 5px;
+  font-size:24px;
+  line-height:1;
+  font-weight:950;
 }
-
-.header h1 {
-  margin: 5px 0 3px;
-  font-size: 23px;
-  line-height: 1.05;
-  font-weight: 950;
-  letter-spacing: -0.5px;
+.header p{
+  margin:0;
+  color:#cbd5e1;
+  font-size:12px;
+  font-weight:800;
 }
-
-.subtitle {
-  font-size: 12px;
-  color: #6e6e73;
-  font-weight: 700;
+.section{
+  margin-bottom:12px;
 }
-
-.congrats-banner {
-  margin-top: 10px;
-  padding: 11px 38px 11px 12px;
-  border-radius: 17px;
-  background:
-    radial-gradient(circle at top right, rgba(236,72,153,.22), transparent 35%),
-    linear-gradient(180deg, #ffffff 0%, #fff3f8 100%);
-  border: 2px solid #ec4899;
-  position: relative;
-  overflow: hidden;
-  animation: congratsPulse 1.4s infinite;
+.section-title{
+  margin:0 0 8px;
+  padding:10px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#ec4899,#be185d);
+  color:#fff;
+  text-align:center;
+  font-size:14px;
+  font-weight:950;
+  letter-spacing:.5px;
+  box-shadow:0 4px 14px rgba(236,72,153,.35);
 }
-
-.congrats-banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 70%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent);
-  animation: congratsShine 2.6s infinite;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
 }
-
-.congrats-title {
-  display: inline;
-  font-size: 18px;
-  line-height: 1;
-  font-weight: 950;
-  color: #ec4899;
-  letter-spacing: -0.4px;
-  animation: textBlink 1.15s infinite;
+.card{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  background:rgba(255,255,255,.095);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:19px;
+  padding:11px 8px;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);
+  backdrop-filter:blur(10px);
 }
-
-.congrats-text {
-  display: inline;
-  margin-left: 4px;
-  font-size: 13px;
-  line-height: 1.15;
-  font-weight: 950;
-  color: #111827;
-  letter-spacing: -0.2px;
+.logo{
+  height:50px;
+  border-radius:999px;
+  background:#050505;
+  border:1px solid #374151;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 10px;
+  margin-bottom:7px;
 }
-
-.congrats-close {
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  width: 25px;
-  height: 25px;
-  border: none;
-  border-radius: 999px;
-  background: rgba(17,24,39,.08);
-  color: #111827;
-  font-size: 18px;
-  line-height: 1;
-  font-weight: 900;
-  cursor: pointer;
-  z-index: 2;
+.logo img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
 }
-
-.congrats-close:active {
-  transform: scale(.92);
+.badge{
+  display:inline-flex;
+  margin-bottom:6px;
+  padding:5px 8px;
+  border-radius:999px;
+  background:rgba(34,197,94,.16);
+  border:1px solid rgba(34,197,94,.48);
+  color:#86efac;
+  font-size:9px;
+  line-height:1;
+  font-weight:950;
 }
-
-.congrats-banner.is-hidden {
-  display: none;
+.site-name{
+  font-size:15px;
+  line-height:1.05;
+  font-weight:950;
+  margin-bottom:5px;
 }
-
-/* FEATURED */
-.featured-card {
-  width: 100%;
-  margin-bottom: 9px;
-  padding: 12px;
-  border-radius: 20px;
-  border: 2px solid #ec4899;
-  background:
-    radial-gradient(circle at top right, rgba(236,72,153,.16), transparent 35%),
-    linear-gradient(180deg, #ffffff 0%, #fff3f8 100%);
-  box-shadow:
-    0 8px 22px rgba(190,24,93,.14),
-    0 2px 8px rgba(0,0,0,.05);
+.bonus{
+  font-size:13px;
+  line-height:1.1;
+  font-weight:950;
+  color:#f9a8d4;
+  margin-bottom:8px;
 }
-
-.featured-label {
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: #ec4899;
-  color: #ffffff;
-  font-size: 10px;
-  line-height: 1;
-  font-weight: 950;
-  letter-spacing: .35px;
+.btn{
+  display:block;
+  width:100%;
+  padding:11px 4px;
+  border-radius:12px;
+  background:#ec4899;
+  color:#fff;
+  font-size:11px;
+  line-height:1;
+  font-weight:950;
+  position:relative;
+  overflow:hidden;
 }
-
-.featured-inner {
-  display: grid;
-  grid-template-columns: 132px 1fr;
-  gap: 10px;
-  align-items: center;
+.btn:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:70%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  animation:shine 2.6s infinite;
 }
-
-.featured-logo {
-  width: 132px;
-  height: 55px;
-  border-radius: 999px;
-  background: #111827;
-  border: 1px solid #374151;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.05),
-    0 4px 12px rgba(0,0,0,.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 7px 13px;
-  overflow: hidden;
+.footer{
+  margin-top:10px;
+  text-align:center;
+  font-size:11px;
 }
-
-.featured-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.footer a{
+  color:#f9a8d4;
+  text-decoration:none;
+  font-weight:900;
 }
+@keyframes shine{100%{left:140%}}
 
-.featured-title {
-  font-size: 23px;
-  line-height: 1.05;
-  font-weight: 950;
-  color: #be185d;
-  letter-spacing: -0.7px;
-}
-
-.featured-btn {
-  display: block;
-  width: 100%;
-  margin-top: 9px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  background: #be185d;
-  color: #ffffff;
-  text-align: center;
-  text-decoration: none;
-  font-size: 15px;
-  line-height: 1;
-  font-weight: 950;
-  position: relative;
-  overflow: hidden;
-  animation: featuredPulse 1.8s infinite;
-}
-
-.featured-btn::before,
-.site-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 70%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
-  animation: shine 3s infinite;
-}
-
-/* GRID */
-.bonus-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
-}
-
-.site-card {
-  min-width: 0;
-  background: #ffffff;
-  border: 1px solid #ececec;
-  border-radius: 13px;
-  padding: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.045);
-}
-
-.site-logo {
-  width: 100%;
-  height: 34px;
-  border-radius: 999px;
-  background: #111827;
-  border: 1px solid #374151;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 6px;
-  overflow: hidden;
-}
-
-.site-logo img {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.site-title {
-  height: 30px;
-  margin-top: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 10px;
-  line-height: 1.05;
-  font-weight: 950;
-  color: #111827;
-  letter-spacing: -0.2px;
-}
-
-.site-btn {
-  display: block;
-  width: 100%;
-  margin-top: 6px;
-  padding: 8px 3px;
-  border-radius: 9px;
-  background: #ec4899;
-  color: #ffffff;
-  text-align: center;
-  text-decoration: none;
-  font-size: 9px;
-  line-height: 1;
-  font-weight: 950;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 0 0 rgba(236,72,153,.45);
-  animation: pulse 2s infinite;
-}
-
-.site-footer {
-  margin-top: 18px;
-  padding: 12px 10px 8px;
-  text-align: center;
-  font-size: 12px;
-  color: #6e6e73;
-}
-
-.site-footer a {
-  color: #229ED9;
-  text-decoration: none;
-  font-weight: 850;
-}
-
-/* SHARE WIDGET */
-.share-widget {
-  position: fixed;
-  right: 12px;
-  bottom: 12px;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 7px;
-}
-
-.share-title {
-  padding: 6px 9px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.92);
-  color: #1d1d1f;
-  font-size: 10px;
-  line-height: 1;
-  font-weight: 950;
-  box-shadow: 0 3px 10px rgba(0,0,0,.08);
-  border: 1px solid rgba(0,0,0,.06);
-  backdrop-filter: blur(8px);
-}
-
-.share-buttons {
-  display: flex;
-  gap: 7px;
-}
-
-.share-button {
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,.14);
-}
-
-.share-button svg {
-  width: 21px;
-  height: 21px;
-  display: block;
-}
-
-.share-whatsapp { background: #25D366; }
-.share-telegram { background: #229ED9; }
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(236,72,153,.42); }
-  70% { box-shadow: 0 0 0 8px rgba(236,72,153,0); }
-  100% { box-shadow: 0 0 0 0 rgba(236,72,153,0); }
-}
-
-@keyframes featuredPulse {
-  0% { box-shadow: 0 0 0 0 rgba(190,24,93,.50); }
-  70% { box-shadow: 0 0 0 13px rgba(190,24,93,0); }
-  100% { box-shadow: 0 0 0 0 rgba(190,24,93,0); }
-}
-
-@keyframes shine {
-  100% { left: 140%; }
-}
-
-@keyframes congratsPulse {
-  0% { box-shadow: 0 0 0 0 rgba(236,72,153,.42), 0 8px 22px rgba(190,24,93,.12); }
-  60% { box-shadow: 0 0 0 9px rgba(236,72,153,0), 0 8px 22px rgba(190,24,93,.16); }
-  100% { box-shadow: 0 0 0 0 rgba(236,72,153,0), 0 8px 22px rgba(190,24,93,.12); }
-}
-
-@keyframes textBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .66; }
-}
-
-@keyframes congratsShine {
-  100% { left: 140%; }
-}
-
-@media (max-width: 360px) {
-  .page {
-    padding-left: 5px;
-    padding-right: 5px;
+@media(min-width:700px){
+  .page{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:26px 18px;
   }
-
-  .header h1 {
-    font-size: 20px;
+  .header h1{font-size:36px}
+  .header p{font-size:15px}
+  .section-title{font-size:15px}
+  .grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
   }
-
-  .subtitle {
-    font-size: 11px;
+  .card{
+    padding:15px 10px;
+    border-radius:22px;
+    transition:.25s;
   }
-
-  .congrats-title {
-    font-size: 15px;
+  .card:hover{
+    transform:translateY(-5px);
+    border-color:#ec4899;
   }
-
-  .congrats-text {
-    font-size: 11px;
+  .logo{
+    height:58px;
+    margin-bottom:10px;
   }
-
-  .featured-inner {
-    grid-template-columns: 112px 1fr;
-    gap: 8px;
-  }
-
-  .featured-logo {
-    width: 112px;
-    height: 49px;
-    padding: 6px 10px;
-  }
-
-  .featured-title {
-    font-size: 19px;
-  }
-
-  .featured-btn {
-    padding: 11px;
-    font-size: 13px;
-  }
-
-  .bonus-grid {
-    gap: 5px;
-  }
-
-  .site-card {
-    padding: 5px;
-    border-radius: 12px;
-  }
-
-  .site-logo {
-    height: 31px;
-    padding: 4px 5px;
-  }
-
-  .site-title {
-    height: 29px;
-    font-size: 9px;
-  }
-
-  .site-btn {
-    font-size: 8px;
-    padding: 7px 2px;
-  }
-}
-
-@media (min-width: 700px) {
-  .page {
-    padding: 22px 18px 100px;
-  }
-
-  .header h1 {
-    font-size: 31px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-  }
-
-  .congrats-banner {
-    padding: 16px 50px 16px 18px;
-    border-radius: 22px;
-  }
-
-  .congrats-title {
-    font-size: 30px;
-  }
-
-  .congrats-text {
-    font-size: 21px;
-  }
-
-  .featured-card {
-    padding: 20px;
-    border-radius: 24px;
-  }
-
-  .featured-inner {
-    grid-template-columns: 230px 1fr 210px;
-  }
-
-  .featured-logo {
-    width: 230px;
-    height: 82px;
-  }
-
-  .featured-title {
-    font-size: 38px;
-  }
-
-  .featured-btn {
-    margin-top: 0;
-    padding: 20px 16px;
-    font-size: 16px;
-  }
-
-  .bonus-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .site-card {
-    padding: 11px;
-    border-radius: 18px;
-  }
-
-  .site-logo {
-    height: 55px;
-    padding: 8px 12px;
-  }
-
-  .site-title {
-    height: 42px;
-    font-size: 14px;
-  }
-
-  .site-btn {
-    padding: 12px 6px;
-    font-size: 12px;
-  }
-
-  .share-widget {
-    right: 22px;
-    bottom: 22px;
+  .site-name{font-size:16px}
+  .bonus{font-size:14px}
+  .btn{
+    padding:13px 6px;
+    font-size:12px;
   }
 }
 </style>
 </head>
 
 <body>
-
 <div class="page">
-  <div class="page-container">
+  <div class="container">
 
-    <div class="header">
-      <h1>Bonusum Gelsin</h1>
-      <div class="subtitle">bonusumgelsin.com</div>
+    <header class="header">
+      <h1>8 SİTEYE DE ÜYE OL</h1>
+      <p>Toplam 4.000 TL deneme bonusu fırsatı</p>
+    </header>
 
-      <div class="congrats-banner" id="congrats-banner">
-        <button class="congrats-close" id="congrats-close" type="button" aria-label="Kapat">×</button>
-        <span class="congrats-title">TEBRİKLER!</span>
-        <span class="congrats-text">18 FARKLI DENEME BONUSU KAZANDIN!</span>
-      </div>
-    </div>
+    <main id="sections"></main>
 
-    <div id="featured-area"></div>
-    <div id="bonus-grid" class="bonus-grid"></div>
-
-    <footer class="site-footer">
+    <footer class="footer">
       <a href="https://t.me/clickprojects" target="_blank" rel="nofollow noopener">
         Telegram: @clickprojects
       </a>
@@ -557,112 +203,87 @@ body {
   </div>
 </div>
 
-<div class="share-widget" aria-label="Arkadaşına gönder">
-  <div class="share-title">ARKADAŞINA GÖNDER</div>
-
-  <div class="share-buttons">
-    <a class="share-button share-whatsapp" id="share-whatsapp" href="#" target="_blank" rel="nofollow noopener" aria-label="WhatsApp ile gönder">
-      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#fff" d="M16.04 3C9.44 3 4.06 8.37 4.06 14.98c0 2.12.56 4.18 1.62 5.99L4 29l8.22-1.61a12 12 0 0 0 3.82.62c6.61 0 11.98-5.38 11.98-11.99S22.65 3 16.04 3zm0 22.93c-1.25 0-2.47-.21-3.63-.63l-.52-.19-4.87.95.98-4.74-.25-.49a9.85 9.85 0 0 1-1.12-4.55c0-5.19 4.22-9.41 9.41-9.41s9.41 4.22 9.41 9.41-4.22 9.65-9.41 9.65zm5.23-7.05c-.29-.14-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.14-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.51.07-.77.36-.26.29-1.01.98-1.01 2.39s1.03 2.78 1.18 2.97c.14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.31.19 1.8.12.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.34z"/>
-      </svg>
-    </a>
-
-    <a class="share-button share-telegram" id="share-telegram" href="#" target="_blank" rel="nofollow noopener" aria-label="Telegram ile gönder">
-      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#fff" d="M179.4 74.4c1.8-11.7-4.5-16.3-13-12.8L48.8 106.9c-8 3.1-7.9 7.6-1.4 9.6l30.2 9.4 70.1-44.2c3.3-2 6.3-.9 3.8 1.4l-56.8 51.3-2.2 31.8c3.2 0 4.6-1.5 6.4-3.2l15.4-15 32 23.6c5.9 3.3 10.1 1.6 11.6-5.5l21.5-91.7z"/>
-      </svg>
-    </a>
-  </div>
-</div>
-
 <script>
-const featuredBonus = {
-  site: "Grandpashabet",
-  logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/grandpashabet.png",
-  title: "1000 TL DENEME BONUSU",
-  url: "https://shorx.one/bkutusugp"
-};
-
-const otherBonuses = [
-  { site: "Maxwin", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/maxwin.png", title: "300 TL DENEME BONUSU", url: "https://rebrand.ly/bonuskutusumax" },
-  { site: "Superbet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/superbet.png", title: "250 TL DENEME BONUSU", url: "https://tracker.superortaklik.com/link?btag=105918253_497350" },
-  { site: "Damabet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/damabet.png", title: "500 TL DENEME BONUSU", url: "https://t.ly/bkutusudama" },
-  { site: "Betgar", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betgar.png", title: "5000 TL DENEME BONUSU", url: "https://girgara.com/MLIcUN" },
-  { site: "Roketbet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/roketbet.png", title: "2500 TL DENEME BONUSU", url: "https://roketlegir.com/y91ZMX" },
-  { site: "Romabet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/romabet.png", title: "500 TL DENEME BONUSU", url: "https://romagir1.com/GWaSyy" },
-  { site: "Venombet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/venombet.png", title: "2500 TL DENEME BONUSU", url: "https://rebrand.ly/bonuskutusuvnm" },
-  { site: "Betwild", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betwild.png", title: "1000 TL DENEME BONUSU", url: "https://t.ly/bonuskutusubwild" },
-  { site: "Dedebet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/dedebet.png", title: "500 TL DENEME BONUSU", url: "https://t.ly/bonuskutusudede" },
-  { site: "Bahibom", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/bahibom.png", title: "1000 TL DENEME BONUSU", url: "https://t.ly/bonuskutusubahibom" },
-  { site: "Sloto", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/sloto.png", title: "250 TL DENEME BONUSU", url: "https://t.ly/bonuskutususloto" },
-  { site: "Palazzobet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/palazzobet.png", title: "1000 TL DENEME BONUSU", url: "https://t.ly/Pzgirbonuskutusu" },
-  { site: "Spinco", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/spinco.png", title: "2000 TL DENEME BONUSU", url: "https://t.ly/bonuskutususpc" },
-  { site: "Betwoon", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betwoon.png", title: "500 TL DENEME BONUSU", url: "https://cutt.ly/bonuskutusubw" },
-  { site: "Betsin", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betsin.png", title: "2500 TL DENEME BONUSU", url: "https://bsinplay.com/sin267" },
-  { site: "Marsbahis", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/marsbahis.png", title: "200 TL DENEME BONUSU", url: "https://dub.sh/marsgit" },
-  { site: "Radissonbet", logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/radissonbet.png", title: "500 TL DENEME BONUSU", url: "https://ptns.io/dEVSR" }
+const groups = [
+  {
+    title: "GÜVENİLİR CASINO SİTELERİ",
+    sites: [
+      {
+        name: "Sloto",
+        logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/sloto.png",
+        url: "https://t.ly/bonuskutususloto"
+      },
+      {
+        name: "Superbet",
+        logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/superbet.png",
+        url: "https://tracker.superortaklik.com/link?btag=105918253_497350"
+      },
+      {
+        name: "Maxwin",
+        logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/maxwin.png",
+        url: "https://rebrand.ly/bonuskutusumax"
+      },
+      {
+        name: "Betwoon",
+        logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/betwoon.png",
+        url: "https://t.ly/Bwbonuskutusu"
+      }
+    ]
+  },
+  {
+    title: "EN İYİ DENEME BONUSLARI",
+    sites: [
+      {
+        name: "Radissonbet",
+        logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/radissonbet.png",
+        url: "https://ptns.io/dEVSR"
+      },
+      {
+        name: "Dedebet",
+        logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/dedebet.png",
+        url: "https://t.ly/bonuskutusudede"
+      },
+      {
+        name: "Damabet",
+        logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/damabet.png",
+        url: "https://t.ly/bkutusudama"
+      },
+      {
+        name: "Romabet",
+        logo: "https://raw.githubusercontent.com/aiprojeler/bonusum-gelsin/main/logos/romabet.png",
+        url: "https://romagir1.com/GWaSyy"
+      }
+    ]
+  }
 ];
 
-function shuffleArray(array) {
-  const shuffled = array.slice();
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const temp = shuffled[i];
-    shuffled[i] = shuffled[j];
-    shuffled[j] = temp;
-  }
-  return shuffled;
-}
-
-function createFeaturedCard(bonus) {
-  const card = document.createElement("div");
-  card.className = "featured-card";
-
-  card.innerHTML = `
-    <div class="featured-label">ÖNE ÇIKAN BONUS</div>
-    <div class="featured-inner">
-      <div class="featured-logo">
-        <img src="${bonus.logo}" alt="${bonus.site}">
+function createCard(site){
+  return `
+    <a class="card" href="${site.url}" target="_blank" rel="nofollow noopener">
+      <div class="logo">
+        <img src="${site.logo}" alt="${site.name}">
       </div>
-      <div class="featured-title">${bonus.title}</div>
-      <a class="featured-btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">BONUSU AL</a>
-    </div>
+      <div class="badge">GÜVENİLİR SİTE</div>
+      <div class="site-name">${site.name}</div>
+      <div class="bonus">500 TL DENEME BONUSU</div>
+      <span class="btn">BONUSU AL</span>
+    </a>
   `;
-
-  return card;
 }
 
-function createSiteCard(bonus) {
-  const card = document.createElement("div");
-  card.className = "site-card";
-
-  card.innerHTML = `
-    <div class="site-logo">
-      <img src="${bonus.logo}" alt="${bonus.site}">
-    </div>
-    <div class="site-title">${bonus.title}</div>
-    <a class="site-btn" href="${bonus.url}" target="_blank" rel="nofollow noopener">BONUSU AL</a>
+function createSection(group){
+  return `
+    <section class="section">
+      <h2 class="section-title">${group.title}</h2>
+      <div class="grid">
+        ${group.sites.map(createCard).join("")}
+      </div>
+    </section>
   `;
-
-  return card;
 }
 
-document.getElementById("featured-area").appendChild(createFeaturedCard(featuredBonus));
-
-const bonusGrid = document.getElementById("bonus-grid");
-shuffleArray(otherBonuses).forEach(function(bonus) {
-  bonusGrid.appendChild(createSiteCard(bonus));
-});
-
-const shareText = "18 farklı deneme bonusu tek linkte!\n\nhttps://dub.sh/sitebonuslari";
-const encodedShareText = encodeURIComponent(shareText);
-
-document.getElementById("share-whatsapp").href = "https://wa.me/?text=" + encodedShareText;
-document.getElementById("share-telegram").href = "https://t.me/share/url?url=https%3A%2F%2Fdub.sh%2Fsitebonuslari&text=" + encodeURIComponent("18 farklı deneme bonusu tek linkte!");
-
-document.getElementById("congrats-close").addEventListener("click", function() {
-  document.getElementById("congrats-banner").classList.add("is-hidden");
-});
+const randomizedGroups = Math.random() < 0.5 ? groups : groups.slice().reverse();
+document.getElementById("sections").innerHTML = randomizedGroups.map(createSection).join("");
 </script>
 
 </body>
